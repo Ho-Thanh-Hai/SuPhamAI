@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nền tảng thiết kế kế hoạch bài dạy </title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/></svg>">
+  
+  <style>
+    
+    :root {
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-sub: #334155;
+      --border-color: #e2e8f0;
+      --border-focus: #0f172a;
+      --primary: #0f172a;
+      --primary-hover: #1e293b;
+      --emerald: #047857;
+      --emerald-hover: #065f46;
+      --blue-accent: #1e3a8a;
+      --blue-soft: #eff6ff;
+      --radius-xl: 18px;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-lg);
+      background: #0f172a;
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .brand-subtitle { display: none; }
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      background: #10b981;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    /* Khung chính */
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .input-card {
+      padding: 28px;
+    }
+
+    @media (max-width: 640px) {
+      .input-card { padding: 20px; }
+    }
+
+    /* Tab Chuyển Đổi */
+    .tab-switcher {
+      display: flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: var(--radius-lg);
+      max-width: 400px;
+      margin: 0 auto 24px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover { color: var(--text-main); }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .tab-pane {
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tab-pane.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ô nhập văn bản */
+    .textarea-wrapper textarea,
+    .upgrade-notes-wrapper textarea {
+      width: 100%;
+      padding: 18px 20px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-main);
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      outline: none;
+      resize: vertical;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .textarea-wrapper textarea:focus,
+    .upgrade-notes-wrapper textarea:focus {
+      background: #ffffff;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 1px var(--border-focus);
+    }
+
+    .input-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    /* Gợi ý ý tưởng */
+    .suggestions-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .suggestions-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+
+    .suggestions-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .suggestion-chip {
+      padding: 7px 12px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      color: #334155;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+
+    .suggestion-chip:hover {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+
+    /* Nút bấm tác vụ */
+    .action-btn-wrapper { margin-top: 6px; }
+
+    .btn {
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 17px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-emerald {
+      background: var(--emerald);
+      color: #ffffff;
+    }
+
+    .btn-emerald:hover:not(:disabled) {
+      background: var(--emerald-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-sm {
+      width: auto;
+      padding: 8px 16px;
+      font-size: 13px;
+      background: #0f172a;
+      color: white;
+      margin-top: 10px;
+    }
+
+    /* Vùng Kéo Thả File */
+    .drop-zone {
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius-lg);
+      background: #f8fafc;
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .drop-zone:hover {
+      border-color: #94a3b8;
+      background: #f1f5f9;
+    }
+
+    .drop-zone.dragover {
+      border-color: #10b981;
+      background: #ecfdf5;
+    }
+
+    .drop-icon {
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .drop-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .drop-sub {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .drop-zone-selected {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .file-meta { text-align: left; }
+    .file-name { font-size: 14px; font-weight: 700; color: #0f172a; }
+    .file-size { font-size: 12px; color: #64748b; }
+
+    .btn-remove-file {
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .btn-remove-file:hover { color: #e11d48; }
+
+    /* ==========================================================================
+       2. KHU VỰC HIỂN THỊ KẾT QUẢ (NOTION CANVAS)
+       ========================================================================== */
+    .results-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 4px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .toolbar-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .status-dot-emerald {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: #10b981;
+    }
+
+    .toolbar-status .sep { color: #cbd5e1; }
+    .toolbar-status .hint { color: #94a3b8; font-weight: 400; }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: all 0.15s ease;
+    }
+
+    .tool-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .tool-btn-blue {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+
+    .tool-btn-blue:hover { background: #dbeafe; }
+
+    .result-card {
+      min-height: 400px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* Trạng thái trống & Đang tạo sinh */
+    .state-container {
+      padding: 80px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .state-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .state-icon-error {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #ffe4e6;
+      color: #e11d48;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spinner-pulse {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulseCard 2s infinite ease-in-out;
+      margin-bottom: 6px;
+    }
+
+    @keyframes pulseCard {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.85; }
+    }
+
+    .spin-animation {
+      animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .state-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .state-sub {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Định dạng tài liệu Notion Paper (Chỉnh sửa trực tiếp) */
+    .notion-document {
+      padding: 44px 56px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #334155;
+      outline: none;
+      min-height: 380px;
+      animation: fadeIn 0.35s ease;
+    }
+
+    @media (max-width: 640px) {
+      .notion-document {
+        padding: 24px 20px;
+        font-size: 16px;
+      }
+    }
+
+    .notion-document h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 6px;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e2e8f0;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .notion-document h2 {
+      font-size: 21px;
+      font-weight: 800;
+      color: #1e3a8a;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+
+    .notion-document h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    .notion-document h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #334155;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .notion-document p {
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    .notion-document ul {
+      list-style-type: disc;
+      padding-left: 24px;
+      margin-bottom: 18px;
+    }
+
+    .notion-document ol {
+      list-style-type: decimal;
+      padding-left: 24px;
+      margin-bottom: 18px;
+    }
+
+    .notion-document li {
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+
+    .notion-document strong {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .notion-document em {
+      font-style: italic;
+      color: #475569;
+    }
+
+    .notion-document blockquote {
+      border-left: 4px solid #3b82f6;
+      background: #f0f7ff;
+      padding: 12px 18px;
+      margin: 18px 0;
+      border-radius: 0 10px 10px 0;
+      color: #1e40af;
+      font-style: italic;
+    }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 500;
+      padding: 8px 0;
+      animation: fadeIn 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Top Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">SưPhạm AI</span>
+          <span class="brand-subtitle">Trợ lý thiết kế kế hoạch bài dạy</span>
+        </div>
+      </div>
+
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>AI Trực tuyến</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    
+    <!-- 1. KHU VỰC ĐẦU VÀO (INPUT CARD) -->
+    <section class="card input-card">
+      
+      <!-- Tab Switcher -->
+      <div class="tab-switcher">
+        <button type="button" class="tab-btn active" id="tabCreateBtn" onclick="switchTab('create')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+          </svg>
+          Tạo bài dạy mới
+        </button>
+
+        <button type="button" class="tab-btn" id="tabUpgradeBtn" onclick="switchTab('upgrade')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+            <path d="M12 12v9"/>
+            <path d="m16 16-4-4-4 4"/>
+          </svg>
+          Cải tiến bài dạy cũ
+        </button>
+      </div>
+
+      <!-- TAB 1: TẠO BÀI DẠY MỚI -->
+      <div id="tabCreateContent" class="tab-pane active">
+        <div class="textarea-wrapper">
+          <textarea 
+            id="promptInput" 
+            rows="4" 
+            placeholder="Nhập ngắn gọn ý tưởng bài dạy của bạn (Ví dụ: Soạn bài dạy Hàm số bậc hai lớp 10, chú trọng hoạt động thực tế vui nhộn, có trò chơi khởi động...)"
+          ></textarea>
+        </div>
+
+        <!-- Quick Inspiration Pills -->
+        <div class="suggestions-wrapper">
+          <span class="suggestions-label">Gợi ý ý tưởng nhanh:</span>
+          <div class="suggestions-list">
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Hàm số bậc hai lớp 10, liên hệ quỹ đạo ném bóng rổ và cổng vòm')">
+              💡 Hàm số bậc hai lớp 10, liên hệ quỹ đạo ném bóng rổ và cổng vòm
+            </button>
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Biện pháp tu từ Nói giảm - Nói tránh lớp 8, hoạt động đóng vai tế nhị')">
+              💡 Biện pháp tu từ Nói giảm - Nói tránh lớp 8, hoạt động đóng vai tế nhị
+            </button>
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Sự truyền âm trong các môi trường lớp 7, trò chơi điện thoại ống bơ')">
+              💡 Sự truyền âm trong các môi trường lớp 7, trò chơi điện thoại ống bơ
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="action-btn-wrapper">
+          <button type="button" class="btn btn-primary" id="btnCreate" onclick="handleGenerateNew()">
+            <svg id="createSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+            </svg>
+            <span id="createBtnText">✨ Tạo kế hoạch bài dạy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 2: CẢI TIẾN BÀI DẠY CŨ -->
+      <div id="tabUpgradeContent" class="tab-pane">
+        <input type="file" id="fileInput" accept=".docx,.doc,.pdf,.txt" style="display: none;" onchange="handleFileSelect(event)">
+        
+        <!-- Drag & Drop Zone -->
+        <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+          <div id="dropZoneEmpty" class="drop-zone-inner">
+            <svg class="drop-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+              <path d="M12 12v9"/>
+              <path d="m16 16-4-4-4 4"/>
+            </svg>
+            <div class="drop-title">Kéo thả file giáo án (.docx, .pdf, .txt) hoặc bấm để chọn tệp</div>
+            <div class="drop-sub">Hỗ trợ tải lên kế hoạch bài dạy cũ cần chỉnh sửa</div>
+          </div>
+
+          <div id="dropZoneSelected" class="drop-zone-selected" style="display: none;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+              <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+              <path d="M10 9H8"/>
+              <path d="M16 13H8"/>
+              <path d="M16 17H8"/>
+            </svg>
+            <div class="file-meta">
+              <div class="file-name" id="selectedFileName">Giao_an_cu.docx</div>
+              <div class="file-size" id="selectedFileSize">25 KB • Sẵn sàng nâng cấp</div>
+            </div>
+            <button type="button" class="btn-remove-file" onclick="removeSelectedFile(event)" title="Hủy chọn tệp">✕</button>
+          </div>
+        </div>
+
+        <!-- Upgrade Notes -->
+        <div class="upgrade-notes-wrapper">
+          <label class="input-label" for="upgradeNotes">Bạn muốn AI cải tiến điều gì?</label>
+          <textarea 
+            id="upgradeNotes" 
+            rows="3" 
+            placeholder="Ví dụ: Thêm trò chơi khởi động, rút ngắn thời gian phần lý thuyết, bổ sung câu hỏi phân hóa cho học sinh khá giỏi..."
+          ></textarea>
+        </div>
+
+        <!-- Upgrade Button -->
+        <div class="action-btn-wrapper">
+          <button type="button" class="btn btn-emerald" id="btnUpgrade" onclick="handleGenerateUpgrade()">
+            <svg id="upgradeSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+            </svg>
+            <span id="upgradeBtnText">🚀 Nâng cấp bài dạy</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 2. KHU VỰC HIỂN THỊ KẾT QUẢ (NOTION / CHATGPT CANVAS) -->
+    <section class="results-section">
+      
+      <!-- Minimalist Top Toolbar -->
+      <div class="toolbar" id="resultToolbar" style="display: none;">
+        <div class="toolbar-status">
+          <span class="status-dot-emerald"></span>
+          <span>Văn bản do AI tạo sinh</span>
+          <span class="sep">•</span>
+          <span class="hint">Có thể bấm trực tiếp để gõ sửa tay</span>
+        </div>
+
+        <div class="toolbar-actions">
+          <button type="button" class="tool-btn" id="btnCopy" onclick="handleCopy()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+            </svg>
+            <span id="copyBtnText">📋 Sao chép</span>
+          </button>
+
+          <button type="button" class="tool-btn" onclick="handleExportWord()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" x2="12" y1="15" y2="3"/>
+            </svg>
+            <span>📥 Xuất Word (.doc)</span>
+          </button>
+
+          <button type="button" class="tool-btn tool-btn-blue" id="btnRegenerate" onclick="handleRegenerate()">
+            <svg class="tool-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+              <path d="M16 16h5v5"/>
+            </svg>
+            <span>🔄 Tạo phương án khác</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Card / Canvas -->
+      <div class="card result-card">
+        
+        <!-- State 1: Placeholder lúc mới vào trang -->
+        <div id="statePlaceholder" class="state-container">
+          <div class="state-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+              <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+              <path d="M10 9H8"/>
+              <path d="M16 13H8"/>
+              <path d="M16 17H8"/>
+            </svg>
+          </div>
+          <h3 class="state-title">Khu vực trả lời kế hoạch bài dạy</h3>
+          <p class="state-sub">
+            Kế hoạch bài dạy do AI thiết kế sẽ hiển thị tại đây sau khi bạn nhấn nút <strong>"Tạo kế hoạch bài dạy"</strong> ở trên.
+          </p>
+        </div>
+
+        <!-- State 2: Đang tải (Loading Spinner) -->
+        <div id="stateLoading" class="state-container" style="display: none;">
+          <div class="spinner-pulse">
+            <svg class="spin-animation" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+            </svg>
+          </div>
+          <h3 class="state-title">AI đang phân tích và thiết kế kế hoạch bài dạy...</h3>
+          <p class="state-sub">Đang xây dựng mục tiêu bài học, học liệu và chuỗi hoạt động sư phạm chuẩn 5512</p>
+        </div>
+
+        <!-- State 3: Hiển thị lỗi nếu có -->
+        <div id="stateError" class="state-container" style="display: none;">
+          <div class="state-icon-error">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" x2="12" y1="8" y2="12"/>
+              <line x1="12" x2="12.01" y1="16" y2="16"/>
+            </svg>
+          </div>
+          <h3 class="state-title">Không thể kết nối AI</h3>
+          <p class="state-sub" id="errorMessage">Đã có lỗi xảy ra</p>
+          <button type="button" class="btn btn-sm" onclick="handleGenerateNew()">Thử lại</button>
+        </div>
+
+        <!-- State 4: Hiển thị tài liệu Notion AI có thể chỉnh sửa trực tiếp -->
+        <div 
+          id="documentCanvas" 
+          class="notion-document" 
+          contenteditable="true" 
+          spellcheck="false"
+          style="display: none;"
+        ></div>
+
+      </div>
+
+      <!-- Small Bottom Disclaimer -->
+      <div class="disclaimer" id="resultDisclaimer" style="display: none;">
+        Nội dung do AI gợi ý hỗ trợ. Người dạy cần kiểm chứng lại trước khi sử dụng.
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       3. LOGIC JAVASCRIPT THUẦN (XỬ LÝ TƯƠNG TÁC & GỌI AI GOOGLE GEMINI)
+       ========================================================================== -->
+  <script>
+    // -------------------------------------------------------------
+    // CẤU HÌNH AI TRỰC TIẾP TRONG CODE (MỞ WEB LÀ DÙNG NGAY)
+    // -------------------------------------------------------------
+    const GEMINI_API_KEY = atob('QVEuQWI4Uk42SjZNckptLU53OEdhc25BMVY1c3IzRWpBYllJZVo3ZExEWGlyazhjbjRRVmc=');
+    const GEMINI_MODEL = 'gemini-3.5-flash-lite';
+
+    // Biến lưu trạng thái
+    let currentPrompt = '';
+    let currentMarkdown = '';
+    let uploadedFileData = null;
+    let isGenerating = false;
+
+    // Chuyển Tab (Tạo mới vs Cải tiến cũ)
+    function switchTab(tab) {
+      const tabCreateBtn = document.getElementById('tabCreateBtn');
+      const tabUpgradeBtn = document.getElementById('tabUpgradeBtn');
+      const tabCreateContent = document.getElementById('tabCreateContent');
+      const tabUpgradeContent = document.getElementById('tabUpgradeContent');
+
+      if (tab === 'create') {
+        tabCreateBtn.classList.add('active');
+        tabUpgradeBtn.classList.remove('active');
+        tabCreateContent.classList.add('active');
+        tabUpgradeContent.classList.remove('active');
+      } else {
+        tabUpgradeBtn.classList.add('active');
+        tabCreateBtn.classList.remove('active');
+        tabUpgradeContent.classList.add('active');
+        tabCreateContent.classList.remove('active');
+      }
+    }
+
+    // Điền nhanh ý tưởng mẫu vào ô nhập
+    function fillPrompt(text) {
+      const promptInput = document.getElementById('promptInput');
+      promptInput.value = text;
+      promptInput.focus();
+    }
+
+    // -------------------------------------------------------------
+    // XỬ LÝ KÉO THẢ & CHỌN FILE
+    // -------------------------------------------------------------
+    const dropZone = document.getElementById('dropZone');
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('dragover');
+      });
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      const file = e.dataTransfer.files[0];
+      if (file) processSelectedFile(file);
+    });
+
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (file) processSelectedFile(file);
+    }
+
+    function processSelectedFile(file) {
+      const sizeKB = Math.round(file.size / 1024);
+      document.getElementById('dropZoneEmpty').style.display = 'none';
+      document.getElementById('dropZoneSelected').style.display = 'flex';
+      document.getElementById('selectedFileName').textContent = file.name;
+      document.getElementById('selectedFileSize').textContent = `${sizeKB} KB • Sẵn sàng nâng cấp`;
+
+      if (file.name.endsWith('.txt')) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          uploadedFileData = {
+            name: file.name,
+            size: `${sizeKB} KB`,
+            content: event.target.result
+          };
+        };
+        reader.readAsText(file);
+      } else {
+        uploadedFileData = {
+          name: file.name,
+          size: `${sizeKB} KB`,
+          content: `Tệp giáo án: ${file.name}`
+        };
+      }
+    }
+
+    function removeSelectedFile(e) {
+      e.stopPropagation();
+      uploadedFileData = null;
+      document.getElementById('fileInput').value = '';
+      document.getElementById('dropZoneEmpty').style.display = 'block';
+      document.getElementById('dropZoneSelected').style.display = 'none';
+    }
+
+    // -------------------------------------------------------------
+    // GỌI GOOGLE GEMINI TẠO SINH TRỰC TIẾP
+    // -------------------------------------------------------------
+    async function callGeminiAI(userPrompt, isUpgrade = false, existingDocContent = '') {
+      const promptTrimmed = userPrompt.trim();
+
+      const systemInstruction = `Bạn là SưPhạm AI - Trợ lý trí tuệ nhân tạo chuyên sâu hỗ trợ sinh viên sư phạm và giáo viên thiết kế kế hoạch bài dạy theo chuẩn chương trình Giáo dục Phổ thông 2018 (Công văn 5512), phong cách chuyên nghiệp, hiện đại tương tự Notion AI / ChatGPT.
+
+QUY TẮC PHẢN HỒI:
+1. NẾU NGƯỜI DÙNG CHÀO HỎI, NÓI CHUYỆN HOẶC CHƯA NÊU RÕ CHỦ ĐỀ BÀI DẠY (Ví dụ: "hello", "hi", "xin chào", "test", câu hỏi chung chung):
+   - Phản hồi tự nhiên, thân thiện và lịch sự như một trợ lý AI thông minh.
+   - TUYỆT ĐỐI KHÔNG gò ép vào khung giáo án (KHÔNG tạo mục tiêu bài học hay chuỗi hoạt động cho lời chào).
+   - Giới thiệu ngắn gọn bạn có thể giúp gì và gợi ý người dùng nhập môn học, khối lớp, tên bài dạy hoặc ý tưởng sư phạm để bắt đầu.
+
+2. NẾU LÀ YÊU CẦU THIẾT KẾ HOẶC CẢI TIẾN KẾ HOẠCH BÀI DẠY:
+   - Hãy thiết kế một kế hoạch bài dạy hoàn chỉnh, chi tiết, chất lượng cao, định dạng Markdown rõ ràng, trang trọng và mạch lạc:
+     # TÊN BÀI DẠY (Môn học - Khối lớp)
+     
+     ## I. MỤC TIÊU BÀI HỌC
+     - **1. Về kiến thức:** Nêu rõ các yêu cầu cần đạt bám sát chương trình GDPT 2018 (dùng động từ hành vi Bloom cụ thể).
+     - **2. Về năng lực:**
+       + *Năng lực chung:* Tự chủ & tự học, Giao tiếp & hợp tác, Giải quyết vấn đề & sáng tạo.
+       + *Năng lực đặc thù:* Các năng lực chuyên môn của môn học.
+     - **3. Về phẩm chất:** Yêu nước, nhân ái, chăm chỉ, trung thực, trách nhiệm (gắn với nội dung bài học).
+     
+     ## II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU
+     - **1. Giáo viên:** Giáo án, bài trình chiếu, phiếu học tập, học liệu số, thiết bị thí nghiệm (nếu có).
+     - **2. Học sinh:** SGK, vở ghi, đồ dùng học tập cá nhân, sản phẩm chuẩn bị trước.
+     
+     ## III. TIẾN TRÌNH DẠY HỌC
+     (Bao gồm 4 hoạt động chuẩn 5512, mỗi hoạt động ghi rõ Thời lượng, Mục tiêu, Nội dung và Sản phẩm dự kiến):
+     ### 1. Hoạt động 1: Khởi động (Xác định vấn đề / nhiệm vụ học tập)
+     - **Mục tiêu:** Tạo tâm thế, kết nối tri thức cũ - mới.
+     - **Nội dung:** [Trò chơi, tình huống thực tiễn, video clip...]
+     - **Sản phẩm:** [Câu trả lời của HS, kết quả trò chơi...]
+     - **Tổ chức thực hiện (4 bước 5512):**
+       + *Chuyển giao nhiệm vụ:* Giáo viên...
+       + *Thực hiện nhiệm vụ:* Học sinh...
+       + *Báo cáo, thảo luận:* Học sinh trình bày...
+       + *Kết luận, nhận định:* Giáo viên chốt kiến thức...
+     
+     ### 2. Hoạt động 2: Hình thành kiến thức mới (Khám phá)
+     [Trình bày tương tự đầy đủ 4 bước]
+     
+     ### 3. Hoạt động 3: Luyện tập
+     [Hệ thống bài tập phân hóa, 4 bước tổ chức]
+     
+     ### 4. Hoạt động 4: Vận dụng
+     [Tình huống thực tế, mở rộng, định hướng tự học ở nhà]
+     
+     ## IV. HỒ SƠ DẠY HỌC & ĐÁNH GIÁ
+     - **Phiếu học tập:** (Trình bày chi tiết nội dung các câu hỏi/nhiệm vụ trong phiếu học tập)
+     - **Phương pháp & Công cụ đánh giá:** Tiêu chí đánh giá, rubric chấm điểm (nếu có).
+
+3. ĐẶC BIỆT CHÚ TRỌNG:
+   - Các hoạt động phải thực chiến, sinh động, không dùng văn mẫu chung chung.
+   - Thể hiện rõ nét phương pháp dạy học tích cực (dạy học theo trạm, khăn trải bàn, dự án, trò chơi học tập, tích hợp CNTT).
+${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI CŨ: ${existingDocContent}` : ''}`;
+
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [
+              {
+                role: 'user',
+                parts: [{ text: `${systemInstruction}\n\nYÊU CẦU CỦA NGƯỜI DÙNG: "${promptTrimmed}"` }]
+              }
+            ],
+            generationConfig: {
+              temperature: 0.7
+            }
+          })
+        }
+      );
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        const detail = errorData?.error?.message || `Lỗi HTTP ${res.status}`;
+        throw new Error(`Lỗi kết nối AI: ${detail}`);
+      }
+
+      const data = await res.json();
+      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!rawText) {
+        throw new Error('AI không phản hồi nội dung. Vui lòng thử lại với yêu cầu khác.');
+      }
+
+      return rawText.trim();
+    }
+
+    // -------------------------------------------------------------
+    // BỘ CHUYỂN ĐỔI MARKDOWN THUẦN SANG HTML
+    // -------------------------------------------------------------
+    function parseMarkdownToHTML(md) {
+      if (!md) return '';
+
+      const lines = md.split('\n');
+      let html = '';
+      let inList = false;
+      let listType = '';
+
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i];
+        const trimmed = line.trim();
+
+        if (!trimmed) {
+          if (inList) {
+            html += `</${listType}>\n`;
+            inList = false;
+          }
+          continue;
+        }
+
+        // Tiêu đề
+        if (trimmed.startsWith('# ')) {
+          if (inList) { html += `</${listType}>\n`; inList = false; }
+          html += `<h1>${formatInline(trimmed.replace(/^#\s+/, ''))}</h1>\n`;
+          continue;
+        }
+        if (trimmed.startsWith('## ')) {
+          if (inList) { html += `</${listType}>\n`; inList = false; }
+          html += `<h2>${formatInline(trimmed.replace(/^##\s+/, ''))}</h2>\n`;
+          continue;
+        }
+        if (trimmed.startsWith('### ')) {
+          if (inList) { html += `</${listType}>\n`; inList = false; }
+          html += `<h3>${formatInline(trimmed.replace(/^###\s+/, ''))}</h3>\n`;
+          continue;
+        }
+        if (trimmed.startsWith('#### ')) {
+          if (inList) { html += `</${listType}>\n`; inList = false; }
+          html += `<h4>${formatInline(trimmed.replace(/^####\s+/, ''))}</h4>\n`;
+          continue;
+        }
+
+        // Trích dẫn blockquote
+        if (trimmed.startsWith('> ')) {
+          if (inList) { html += `</${listType}>\n`; inList = false; }
+          html += `<blockquote>${formatInline(trimmed.replace(/^>\s+/, ''))}</blockquote>\n`;
+          continue;
+        }
+
+        // Danh sách gạch đầu dòng
+        if (/^[-*•+]\s+/.test(trimmed)) {
+          if (!inList || listType !== 'ul') {
+            if (inList) html += `</${listType}>\n`;
+            html += `<ul>\n`;
+            inList = true;
+            listType = 'ul';
+          }
+          const itemText = trimmed.replace(/^[-*•+]\s+/, '');
+          html += `  <li>${formatInline(itemText)}</li>\n`;
+          continue;
+        }
+
+        // Danh sách số
+        if (/^\d+\.\s+/.test(trimmed)) {
+          if (!inList || listType !== 'ol') {
+            if (inList) html += `</${listType}>\n`;
+            html += `<ol>\n`;
+            inList = true;
+            listType = 'ol';
+          }
+          const itemText = trimmed.replace(/^\d+\.\s+/, '');
+          html += `  <li>${formatInline(itemText)}</li>\n`;
+          continue;
+        }
+
+        // Đoạn văn
+        if (inList) {
+          html += `</${listType}>\n`;
+          inList = false;
+        }
+        html += `<p>${formatInline(trimmed)}</p>\n`;
+      }
+
+      if (inList) {
+        html += `</${listType}>\n`;
+      }
+
+      return html;
+    }
+
+    function formatInline(text) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>');
+    }
+
+    // -------------------------------------------------------------
+    // ĐIỀU KHIỂN GIAO DIỆN & TẠO KẾ HOẠCH BÀI DẠY
+    // -------------------------------------------------------------
+    function setGeneratingUI(loading) {
+      isGenerating = loading;
+      const btnCreate = document.getElementById('btnCreate');
+      const btnUpgrade = document.getElementById('btnUpgrade');
+      const createSpinner = document.getElementById('createSpinner');
+      const createBtnText = document.getElementById('createBtnText');
+      const upgradeSpinner = document.getElementById('upgradeSpinner');
+      const upgradeBtnText = document.getElementById('upgradeBtnText');
+
+      btnCreate.disabled = loading;
+      btnUpgrade.disabled = loading;
+
+      if (loading) {
+        createSpinner.classList.add('spin-animation');
+        createBtnText.textContent = 'AI đang thiết kế bài dạy...';
+        upgradeSpinner.classList.add('spin-animation');
+        upgradeBtnText.textContent = 'AI đang nâng cấp giáo án...';
+
+        document.getElementById('statePlaceholder').style.display = 'none';
+        document.getElementById('stateError').style.display = 'none';
+        document.getElementById('documentCanvas').style.display = 'none';
+        document.getElementById('resultToolbar').style.display = 'none';
+        document.getElementById('resultDisclaimer').style.display = 'none';
+        document.getElementById('stateLoading').style.display = 'flex';
+      } else {
+        createSpinner.classList.remove('spin-animation');
+        createBtnText.textContent = '✨ Tạo kế hoạch bài dạy';
+        upgradeSpinner.classList.remove('spin-animation');
+        upgradeBtnText.textContent = '🚀 Nâng cấp bài dạy';
+        document.getElementById('stateLoading').style.display = 'none';
+      }
+    }
+
+    function displayResult(markdownText) {
+      currentMarkdown = markdownText;
+      const html = parseMarkdownToHTML(markdownText);
+      const canvas = document.getElementById('documentCanvas');
+
+      canvas.innerHTML = html;
+      canvas.style.display = 'block';
+
+      document.getElementById('statePlaceholder').style.display = 'none';
+      document.getElementById('stateLoading').style.display = 'none';
+      document.getElementById('stateError').style.display = 'none';
+      document.getElementById('resultToolbar').style.display = 'flex';
+      document.getElementById('resultDisclaimer').style.display = 'block';
+
+      document.getElementById('resultToolbar').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function displayError(errMessage) {
+      document.getElementById('statePlaceholder').style.display = 'none';
+      document.getElementById('stateLoading').style.display = 'none';
+      document.getElementById('documentCanvas').style.display = 'none';
+      document.getElementById('resultToolbar').style.display = 'none';
+      document.getElementById('resultDisclaimer').style.display = 'none';
+
+      const stateError = document.getElementById('stateError');
+      document.getElementById('errorMessage').textContent = errMessage;
+      stateError.style.display = 'flex';
+    }
+
+    // Nút 1: Tạo bài dạy mới
+    async function handleGenerateNew() {
+      const promptInput = document.getElementById('promptInput');
+      let targetPrompt = promptInput.value.trim();
+
+      if (!targetPrompt) {
+        targetPrompt = 'Soạn bài dạy Hàm số bậc hai lớp 10, chú trọng hoạt động thực tế vui nhộn';
+        promptInput.value = targetPrompt;
+      }
+
+      currentPrompt = targetPrompt;
+      setGeneratingUI(true);
+
+      try {
+        const result = await callGeminiAI(targetPrompt, false);
+        displayResult(result);
+      } catch (err) {
+        console.error(err);
+        displayError(err.message || 'Lỗi kết nối AI');
+      } finally {
+        setGeneratingUI(false);
+      }
+    }
+
+    // Nút 2: Nâng cấp bài dạy cũ
+    async function handleGenerateUpgrade() {
+      const upgradeNotes = document.getElementById('upgradeNotes').value.trim();
+      const fileName = uploadedFileData ? uploadedFileData.name : 'Giáo án cũ';
+      const prompt = `${fileName}. Yêu cầu cải tiến: ${upgradeNotes || 'Tối ưu hóa các hoạt động, tăng tính tương tác phát triển năng lực'}`;
+
+      currentPrompt = prompt;
+      setGeneratingUI(true);
+
+      try {
+        const result = await callGeminiAI(prompt, true, uploadedFileData ? uploadedFileData.content : '');
+        displayResult(result);
+      } catch (err) {
+        console.error(err);
+        displayError(err.message || 'Lỗi kết nối AI');
+      } finally {
+        setGeneratingUI(false);
+      }
+    }
+
+    // Nút 3: Tạo phương án khác
+    async function handleRegenerate() {
+      if (!currentPrompt) return;
+      const variationPrompt = `${currentPrompt} (Tạo thêm một phương án thiết kế bài giảng mới, tiếp cận sáng tạo và độc đáo hơn)`;
+
+      setGeneratingUI(true);
+      try {
+        const result = await callGeminiAI(variationPrompt, false);
+        displayResult(result);
+      } catch (err) {
+        console.error(err);
+        displayError(err.message || 'Lỗi kết nối AI');
+      } finally {
+        setGeneratingUI(false);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // SAO CHÉP & XUẤT FILE WORD (.DOC CHUẨN MICROSOFT WORD)
+    // -------------------------------------------------------------
+    function handleCopy() {
+      const canvas = document.getElementById('documentCanvas');
+      const textToCopy = canvas ? canvas.innerText : currentMarkdown;
+
+      if (!textToCopy) return;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const copyBtnText = document.getElementById('copyBtnText');
+        const oldText = copyBtnText.textContent;
+        copyBtnText.textContent = 'Đã sao chép!';
+        setTimeout(() => {
+          copyBtnText.textContent = oldText;
+        }, 2000);
+      });
+    }
+
+    function handleExportWord() {
+      const canvas = document.getElementById('documentCanvas');
+      const contentHtml = canvas ? canvas.innerHTML : parseMarkdownToHTML(currentMarkdown);
+
+      if (!contentHtml) return;
+
+      const header = `<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>Kế hoạch bài dạy 5512</title>
+<style>
+  body {
+    font-family: 'Times New Roman', serif;
+    font-size: 13pt;
+    line-height: 1.35;
+    color: #000000;
+  }
+  h1 { font-size: 18pt; font-weight: bold; text-align: center; color: #1e3a8a; margin-top: 10pt; margin-bottom: 20pt; }
+  h2 { font-size: 14pt; font-weight: bold; color: #1e3a8a; margin-top: 16pt; margin-bottom: 8pt; }
+  h3 { font-size: 13pt; font-weight: bold; margin-top: 12pt; margin-bottom: 6pt; }
+  h4 { font-size: 13pt; font-style: italic; margin-top: 8pt; margin-bottom: 4pt; }
+  p { margin-bottom: 8pt; text-align: justify; }
+  ul, ol { margin-top: 4pt; margin-bottom: 8pt; padding-left: 24pt; }
+  li { margin-bottom: 4pt; }
+  strong { font-weight: bold; color: #000000; }
+  em { font-style: italic; }
+  blockquote { border-left: 3pt solid #2563eb; padding-left: 10pt; font-style: italic; margin: 10pt 0; color: #1e40af; }
+</style>
+</head>
+<body>
+  ${contentHtml}
+</body>
+</html>`;
+
+      const blob = new Blob(['\ufeff' + header], { type: 'application/msword;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Ke_hoach_bai_day_5512.doc';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
