@@ -3,82 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nền tảng thiết kế kế hoạch bài dạy </title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/></svg>">
+  <title>SưPhạm AI - Nền tảng thiết kế kế hoạch bài dạy chuẩn Bộ GD&ĐT | HCMUE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23004b91'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/></svg>">
   
   <style>
-    
+    /* ==========================================================================
+       HỆ THỐNG MÀU SẮC & GIAO DIỆN (HCMUE IDENTITY & SOFT ACADEMIC PALETTE)
+       ========================================================================== */
     :root {
-      --bg-main: #f8fafc;
+      --hcmue-blue: #004b91;
+      --hcmue-navy: #002d59;
+      --hcmue-light-blue: #0d6efd;
+      --hcmue-gold: #f59e0b;
+      --hcmue-gold-soft: #fef3c7;
+      --bg-main: #f8fafd;
       --bg-card: #ffffff;
+      --bg-card-glass: rgba(255, 255, 255, 0.88);
       --bg-input: #f8fafc;
       --bg-input-focus: #ffffff;
-      --bg-switcher: #f1f5f9;
+      --bg-switcher: #eff6ff;
       --bg-hover: #f1f5f9;
       --bg-header: rgba(255, 255, 255, 0.94);
       --text-main: #0f172a;
       --text-muted: #64748b;
       --text-sub: #334155;
-      --text-label: #475569;
+      --text-label: #1e3a8a;
       --border-color: #e2e8f0;
       --border-dashed: #cbd5e1;
-      --border-focus: #0f172a;
-      --primary: #0f172a;
-      --primary-hover: #1e293b;
+      --border-focus: #004b91;
+      --primary: #004b91;
+      --primary-hover: #003666;
       --primary-text: #ffffff;
-      --emerald: #047857;
-      --emerald-hover: #065f46;
-      --blue-accent: #1e3a8a;
-      --blue-soft: #eff6ff;
+      --emerald: #059669;
+      --emerald-hover: #047857;
+      --blue-accent: #0284c7;
+      --blue-soft: #f0f7ff;
+      --radius-2xl: 24px;
       --radius-xl: 18px;
-      --radius-lg: 12px;
-      --radius-md: 8px;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
-      --doc-heading-h1: #0f172a;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --shadow-sm: 0 2px 6px rgba(0, 75, 145, 0.05);
+      --shadow-md: 0 8px 24px rgba(0, 75, 145, 0.08);
+      --shadow-lg: 0 16px 40px rgba(0, 75, 145, 0.12);
+      --doc-heading-h1: #004b91;
       --doc-heading-h2: #1e3a8a;
       --doc-heading-h3: #0f172a;
       --doc-heading-h4: #334155;
       --doc-text: #334155;
       --doc-border: #e2e8f0;
       --quote-bg: #f0f7ff;
-      --quote-border: #3b82f6;
-      --quote-text: #1e40af;
+      --quote-border: #004b91;
+      --quote-text: #004b91;
     }
 
     [data-theme="dark"] {
-      --bg-main: #0b0f19;
-      --bg-card: #111827;
-      --bg-input: #1f2937;
-      --bg-input-focus: #1e293b;
-      --bg-switcher: #1f2937;
-      --bg-hover: #1e293b;
-      --bg-header: rgba(17, 24, 39, 0.94);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --text-sub: #d1d5db;
-      --text-label: #cbd5e1;
-      --border-color: #374151;
-      --border-dashed: #4b5563;
-      --border-focus: #60a5fa;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
+      --hcmue-blue: #38bdf8;
+      --hcmue-navy: #0284c7;
+      --hcmue-light-blue: #60a5fa;
+      --hcmue-gold: #fbbf24;
+      --hcmue-gold-soft: #78350f;
+      --bg-main: #0b1120;
+      --bg-card: #131c31;
+      --bg-card-glass: rgba(19, 28, 49, 0.88);
+      --bg-input: #1a243d;
+      --bg-input-focus: #1f2b49;
+      --bg-switcher: #1a253e;
+      --bg-hover: #1e2d4d;
+      --bg-header: rgba(11, 17, 32, 0.94);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-sub: #cbd5e1;
+      --text-label: #93c5fd;
+      --border-color: #24324f;
+      --border-dashed: #334155;
+      --border-focus: #38bdf8;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
       --primary-text: #ffffff;
-      --emerald: #059669;
-      --emerald-hover: #047857;
-      --blue-accent: #60a5fa;
-      --blue-soft: #1e293b;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-      --doc-heading-h1: #f9fafb;
-      --doc-heading-h2: #60a5fa;
-      --doc-heading-h3: #e5e7eb;
-      --doc-heading-h4: #d1d5db;
-      --doc-text: #e5e7eb;
-      --doc-border: #374151;
+      --emerald: #10b981;
+      --emerald-hover: #059669;
+      --blue-accent: #38bdf8;
+      --blue-soft: #172554;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+      --doc-heading-h1: #60a5fa;
+      --doc-heading-h2: #93c5fd;
+      --doc-heading-h3: #e2e8f0;
+      --doc-heading-h4: #cbd5e1;
+      --doc-text: #e2e8f0;
+      --doc-border: #24324f;
       --quote-bg: #1e293b;
-      --quote-border: #60a5fa;
-      --quote-text: #93c5fd;
+      --quote-border: #38bdf8;
+      --quote-text: #bae6fd;
     }
 
     * {
@@ -93,51 +110,105 @@
       color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Header */
+    /* Họa tiết nền sư phạm trang nhã */
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 75, 145, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(13, 110, 253, 0.03) 0%, transparent 50%);
+    }
+
+    [data-theme="dark"] .bg-pattern {
+      opacity: 0.25;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(251, 191, 36, 0.06) 0%, transparent 40%);
+    }
+
+    /* ==========================================================================
+       HEADER THANH ĐIỀU HƯỚNG & LOGO ĐẠI HỌC SƯ PHẠM TP.HCM
+       ========================================================================== */
     .header {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 50;
       background: var(--bg-header);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
-      transition: background 0.2s ease, border-color 0.2s ease;
+      transition: background 0.25s ease, border-color 0.25s ease;
     }
 
     .header-container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 20px;
-      height: 64px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-lg);
-      background: #0f172a;
-      color: #60a5fa;
+    .hcmue-logo-wrapper {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--shadow-sm);
+      background: #ffffff;
+      padding: 2px;
+      box-shadow: 0 3px 10px rgba(0, 75, 145, 0.12);
+      border: 1px solid rgba(0, 75, 145, 0.15);
+      transition: transform 0.2s ease;
     }
 
-    [data-theme="dark"] .brand-icon {
-      background: #1e293b;
-      border: 1px solid #374151;
+    .hcmue-logo-wrapper:hover {
+      transform: scale(1.05);
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-top-sub {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #004b91;
+      line-height: 1.2;
+    }
+
+    [data-theme="dark"] .brand-top-sub {
+      color: #38bdf8;
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
     }
 
     .brand-title {
@@ -145,17 +216,31 @@
       font-weight: 800;
       color: var(--text-main);
       letter-spacing: -0.02em;
+      line-height: 1.2;
     }
 
-    .brand-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-      margin-left: 8px;
+    .brand-title span {
+      color: #004b91;
     }
 
-    @media (max-width: 640px) {
-      .brand-subtitle { display: none; }
+    [data-theme="dark"] .brand-title span {
+      color: #38bdf8;
+    }
+
+    .brand-badge-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: var(--blue-soft);
+      color: #004b91;
+      border: 1px solid rgba(0, 75, 145, 0.2);
+    }
+
+    [data-theme="dark"] .brand-badge-tag {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
     }
 
     .header-right {
@@ -164,12 +249,47 @@
       gap: 10px;
     }
 
+    .header-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-sub);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .header-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+      border-color: var(--hcmue-blue);
+      transform: translateY(-1px);
+    }
+
+    .header-btn-scientific {
+      background: var(--blue-soft);
+      color: #004b91;
+      border-color: rgba(0, 75, 145, 0.25);
+    }
+
+    [data-theme="dark"] .header-btn-scientific {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
     .theme-toggle-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: var(--radius-md);
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -180,24 +300,20 @@
 
     .theme-toggle-btn:hover {
       background: var(--bg-hover);
-      transform: scale(1.04);
-    }
-
-    .theme-toggle-btn svg {
-      transition: transform 0.25s ease;
+      transform: scale(1.05);
     }
 
     .status-badge {
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 12px;
+      padding: 6px 12px;
       background: #ecfdf5;
       color: #047857;
       border: 1px solid #a7f3d0;
       border-radius: 9999px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     [data-theme="dark"] .status-badge {
@@ -219,22 +335,171 @@
       50% { opacity: 0.4; transform: scale(0.9); }
     }
 
-    /* Khung chính */
-    .main-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
+    @media (max-width: 768px) {
+      .brand-top-sub { display: none; }
+      .brand-badge-tag { display: none; }
+      .header-btn span { display: none; }
+      .header-btn { padding: 8px; }
+      .status-badge span { display: none; }
+      .status-badge { padding: 8px; }
     }
 
+    /* ==========================================================================
+       CONTAINER & KHUNG NỘI DUNG CHÍNH
+       ========================================================================== */
+    .main-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ==========================================================================
+       HERO BANNER & CĂN CỨ KHOA HỌC SƯ PHẠM
+       ========================================================================== */
+    .hero-card {
+      background: linear-gradient(135deg, rgba(0, 75, 145, 0.05) 0%, rgba(245, 158, 11, 0.04) 100%), var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] .hero-card {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(251, 191, 36, 0.04) 100%), var(--bg-card);
+    }
+
+    .hero-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(0, 75, 145, 0.25);
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--blue-soft);
+      color: #004b91;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      border: 1px solid rgba(0, 75, 145, 0.15);
+    }
+
+    [data-theme="dark"] .hero-badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .hero-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    /* 4 Thẻ Trụ Cột Khoa Học Pháp Lý */
+    .legal-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+    }
+
+    .pillar-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 8px 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .pillar-pill:hover {
+      border-color: #004b91;
+      background: var(--blue-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 75, 145, 0.08);
+    }
+
+    [data-theme="dark"] .pillar-pill:hover {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .pillar-code {
+      font-size: 12px;
+      font-weight: 800;
+      color: #004b91;
+    }
+
+    [data-theme="dark"] .pillar-code {
+      color: #38bdf8;
+    }
+
+    .pillar-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .hero-art {
+      width: 170px;
+      height: 140px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 680px) {
+      .hero-card { flex-direction: column; padding: 20px; text-align: left; }
+      .hero-art { display: none; }
+      .legal-pillars-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ==========================================================================
+       KHUNG NHẬP LIỆU (INPUT CARD) & BỘ LỌC TÙY CHỌN SƯ PHẠM
+       ========================================================================== */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-2xl);
       box-shadow: var(--shadow-sm);
-      transition: background 0.2s ease, border-color 0.2s ease;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .input-card {
@@ -242,17 +507,17 @@
     }
 
     @media (max-width: 640px) {
-      .input-card { padding: 20px; }
+      .input-card { padding: 18px; }
     }
 
-    /* Tab Chuyển Đổi */
+    /* Tab Switcher */
     .tab-switcher {
       display: flex;
       background: var(--bg-switcher);
       padding: 4px;
       border-radius: var(--radius-lg);
-      max-width: 400px;
-      margin: 0 auto 24px;
+      max-width: 420px;
+      margin: 0 auto 20px;
       border: 1px solid var(--border-color);
     }
 
@@ -262,37 +527,114 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 9px 16px;
+      padding: 10px 16px;
       border: none;
       background: transparent;
       color: var(--text-muted);
       font-size: 14px;
       font-weight: 700;
-      border-radius: 9px;
+      border-radius: var(--radius-md);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .tab-btn:hover { color: var(--text-main); }
 
     .tab-btn.active {
       background: var(--bg-card);
-      color: var(--text-main);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      color: #004b91;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="dark"] .tab-btn.active {
+      color: #38bdf8;
     }
 
     .tab-pane {
       display: none;
       flex-direction: column;
-      gap: 18px;
-      animation: fadeIn 0.25s ease;
+      gap: 20px;
+      animation: fadeIn 0.3s ease;
     }
 
     .tab-pane.active { display: flex; }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(3px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Thanh Cấu Hình Sư Phạm Nhanh */
+    .pedagogy-config-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pedagogy-config-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-label);
+    }
+
+    .pedagogy-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pedagogy-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .pedagogy-tag {
+      padding: 5px 11px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pedagogy-tag:hover {
+      border-color: #004b91;
+      color: #004b91;
+      background: var(--blue-soft);
+    }
+
+    .pedagogy-tag.active {
+      background: #004b91;
+      color: #ffffff;
+      border-color: #004b91;
+      box-shadow: 0 2px 6px rgba(0, 75, 145, 0.25);
+    }
+
+    [data-theme="dark"] .pedagogy-tag:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    [data-theme="dark"] .pedagogy-tag.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #ffffff;
     }
 
     /* Ô nhập văn bản */
@@ -300,12 +642,12 @@
     .upgrade-notes-wrapper textarea {
       width: 100%;
       padding: 18px 20px;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.65;
       color: var(--text-main);
       background: var(--bg-input);
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       outline: none;
       resize: vertical;
       font-family: inherit;
@@ -316,7 +658,12 @@
     .upgrade-notes-wrapper textarea:focus {
       background: var(--bg-input-focus);
       border-color: var(--border-focus);
-      box-shadow: 0 0 0 1px var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(0, 75, 145, 0.12);
+    }
+
+    [data-theme="dark"] .textarea-wrapper textarea:focus,
+    [data-theme="dark"] .upgrade-notes-wrapper textarea:focus {
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
     }
 
     .input-label {
@@ -338,7 +685,7 @@
 
     .suggestions-label {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
     }
 
@@ -349,7 +696,7 @@
     }
 
     .suggestion-chip {
-      padding: 7px 12px;
+      padding: 7px 14px;
       background: var(--bg-switcher);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
@@ -357,72 +704,74 @@
       color: var(--text-sub);
       cursor: pointer;
       text-align: left;
-      transition: all 0.15s ease;
+      transition: all 0.2s ease;
     }
 
     .suggestion-chip:hover {
       background: var(--blue-soft);
-      color: var(--blue-accent);
-      border-color: var(--blue-accent);
+      color: #004b91;
+      border-color: rgba(0, 75, 145, 0.3);
+      transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .suggestion-chip:hover {
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.4);
     }
 
     /* Nút bấm tác vụ */
-    .action-btn-wrapper { margin-top: 6px; }
+    .action-btn-wrapper { margin-top: 4px; }
 
     .btn {
       width: 100%;
       padding: 16px 24px;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       border: none;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: var(--shadow-sm);
     }
 
     .btn:disabled {
-      opacity: 0.5;
+      opacity: 0.6;
       cursor: not-allowed;
     }
 
     .btn-primary {
-      background: var(--primary);
-      color: var(--primary-text);
+      background: linear-gradient(135deg, #004b91 0%, #0d6efd 100%);
+      color: #ffffff;
     }
 
     .btn-primary:hover:not(:disabled) {
-      background: var(--primary-hover);
-      box-shadow: var(--shadow-md);
+      background: linear-gradient(135deg, #003666 0%, #0b5ed7 100%);
+      box-shadow: 0 8px 24px rgba(0, 75, 145, 0.28);
+      transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .btn-primary {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
     }
 
     .btn-emerald {
-      background: var(--emerald);
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
       color: #ffffff;
     }
 
     .btn-emerald:hover:not(:disabled) {
-      background: var(--emerald-hover);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-sm {
-      width: auto;
-      padding: 8px 16px;
-      font-size: 13px;
-      background: var(--primary);
-      color: white;
-      margin-top: 10px;
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.28);
+      transform: translateY(-1px);
     }
 
     /* Vùng Kéo Thả File */
     .drop-zone {
       border: 2px dashed var(--border-dashed);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       background: var(--bg-input);
       padding: 32px 20px;
       text-align: center;
@@ -431,8 +780,8 @@
     }
 
     .drop-zone:hover {
-      border-color: var(--text-muted);
-      background: var(--bg-hover);
+      border-color: #004b91;
+      background: var(--blue-soft);
     }
 
     .drop-zone.dragover {
@@ -446,7 +795,7 @@
     }
 
     .drop-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
@@ -481,7 +830,7 @@
     .btn-remove-file:hover { color: #e11d48; }
 
     /* ==========================================================================
-       2. KHU VỰC HIỂN THỊ KẾT QUẢ (NOTION CANVAS)
+       KHU VỰC HIỂN THỊ KẾT QUẢ GIÁO ÁN (NOTION CANVAS)
        ========================================================================== */
     .results-section {
       display: flex;
@@ -504,7 +853,7 @@
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
     }
 
@@ -515,98 +864,94 @@
       background: #10b981;
     }
 
-    .toolbar-status .sep { color: var(--border-color); }
-    .toolbar-status .hint { color: var(--text-muted); font-weight: 400; }
-
     .toolbar-actions {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .tool-btn {
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
+      padding: 8px 14px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-sub);
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       cursor: pointer;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      transition: all 0.15s ease;
+      transition: all 0.2s ease;
     }
 
     .tool-btn:hover {
       background: var(--bg-hover);
       color: var(--text-main);
+      transform: translateY(-1px);
     }
 
     .tool-btn-blue {
       background: var(--blue-soft);
-      color: var(--blue-accent);
-      border-color: var(--border-color);
+      color: #004b91;
+      border-color: rgba(0, 75, 145, 0.25);
     }
 
-    .tool-btn-blue:hover { background: var(--border-color); }
+    [data-theme="dark"] .tool-btn-blue {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
 
     .result-card {
-      min-height: 400px;
+      min-height: 420px;
       overflow: hidden;
-      transition: all 0.2s ease;
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-sm);
     }
 
     /* Trạng thái trống & Đang tạo sinh */
     .state-container {
-      padding: 80px 24px;
+      padding: 70px 24px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      max-width: 520px;
+      gap: 14px;
+      max-width: 560px;
       margin: 0 auto;
       animation: fadeIn 0.3s ease;
     }
 
     .state-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-xl);
+      background: var(--blue-soft);
+      color: #004b91;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .state-icon-error {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: #ffe4e6;
-      color: #e11d48;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    [data-theme="dark"] .state-icon {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
     }
 
     .spinner-pulse {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-xl);
       background: var(--blue-soft);
       display: flex;
       align-items: center;
       justify-content: center;
       animation: pulseCard 2s infinite ease-in-out;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     @keyframes pulseCard {
@@ -625,20 +970,20 @@
 
     .state-title {
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--text-main);
     }
 
     .state-sub {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-muted);
       line-height: 1.6;
     }
 
-    /* Định dạng tài liệu Notion Paper (Chỉnh sửa trực tiếp) */
+    /* Định dạng tài liệu giáo án */
     .notion-document {
-      padding: 44px 56px;
-      font-size: 17px;
+      padding: 44px 54px;
+      font-size: 16.5px;
       line-height: 1.75;
       color: var(--doc-text);
       outline: none;
@@ -649,63 +994,47 @@
     @media (max-width: 640px) {
       .notion-document {
         padding: 24px 20px;
-        font-size: 16px;
+        font-size: 15.5px;
       }
     }
 
     .notion-document h1 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 800;
       color: var(--doc-heading-h1);
       margin-top: 6px;
-      margin-bottom: 22px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--doc-border);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--doc-border);
       line-height: 1.3;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
     .notion-document h2 {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 800;
       color: var(--doc-heading-h2);
       margin-top: 32px;
       margin-bottom: 14px;
       line-height: 1.35;
-      letter-spacing: -0.01em;
     }
 
     .notion-document h3 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--doc-heading-h3);
-      margin-top: 24px;
+      margin-top: 22px;
       margin-bottom: 10px;
     }
 
-    .notion-document h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--doc-heading-h4);
-      margin-top: 16px;
-      margin-bottom: 8px;
-    }
-
     .notion-document p {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.75;
     }
 
-    .notion-document ul {
-      list-style-type: disc;
+    .notion-document ul, .notion-document ol {
       padding-left: 24px;
-      margin-bottom: 18px;
-    }
-
-    .notion-document ol {
-      list-style-type: decimal;
-      padding-left: 24px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .notion-document li {
@@ -718,17 +1047,12 @@
       color: var(--text-main);
     }
 
-    .notion-document em {
-      font-style: italic;
-      color: var(--text-muted);
-    }
-
     .notion-document blockquote {
       border-left: 4px solid var(--quote-border);
       background: var(--quote-bg);
-      padding: 12px 18px;
+      padding: 14px 18px;
       margin: 18px 0;
-      border-radius: 0 10px 10px 0;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
       color: var(--quote-text);
       font-style: italic;
     }
@@ -739,66 +1063,451 @@
       color: var(--text-muted);
       font-weight: 500;
       padding: 8px 0;
-      animation: fadeIn 0.3s ease;
+    }
+
+    /* ==========================================================================
+       MASCOT SƯ PHẠM: "BÉ SÁCH THÔNG THÁI" (BOOKIE)
+       ========================================================================== */
+    .mascot-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      pointer-events: none;
+    }
+
+    .mascot-container * {
+      pointer-events: auto;
+    }
+
+    /* Bóng Thoại (Speech Bubble) */
+    .mascot-bubble {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 14px 18px;
+      max-width: 310px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: bubblePop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s ease;
+    }
+
+    @keyframes bubblePop {
+      0% { opacity: 0; transform: scale(0.85) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .mascot-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 36px;
+      width: 14px;
+      height: 14px;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      transform: rotate(45deg);
+    }
+
+    .mascot-bubble-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .mascot-name-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #004b91;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    [data-theme="dark"] .mascot-name-tag {
+      color: #38bdf8;
+    }
+
+    .mascot-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 4px;
+      line-height: 1;
+    }
+
+    .mascot-close-btn:hover { color: var(--text-main); }
+
+    .mascot-text {
+      font-size: 13.5px;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .mascot-bubble-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .mascot-tip-btn {
+      background: transparent;
+      border: none;
+      color: #004b91;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 2px 4px;
+      text-decoration: underline;
+    }
+
+    [data-theme="dark"] .mascot-tip-btn {
+      color: #38bdf8;
+    }
+
+    /* Nhân vật Bé Sách (Bookie Avatar) */
+    .mascot-avatar-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 9999px;
+      background: var(--bg-card);
+      border: 2px solid #004b91;
+      box-shadow: 0 8px 24px rgba(0, 75, 145, 0.25);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: floatBookie 3.5s ease-in-out infinite;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow: visible;
+    }
+
+    [data-theme="dark"] .mascot-avatar-btn {
+      border-color: #38bdf8;
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
+    }
+
+    .mascot-avatar-btn:hover {
+      transform: scale(1.08) translateY(-4px);
+    }
+
+    @keyframes floatBookie {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .mascot-eye {
+      animation: blinkEye 4s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes blinkEye {
+      0%, 92%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.1); }
+    }
+
+    @media (max-width: 640px) {
+      .mascot-container { bottom: 16px; right: 16px; }
+      .mascot-bubble { max-width: 250px; }
+      .mascot-avatar-btn { width: 58px; height: 58px; }
+    }
+
+    /* ==========================================================================
+       MODAL TRA CỨU CƠ SỞ PHÁP LÝ & CÔNG VĂN BỘ GD&ĐT
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      max-width: 720px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--bg-card);
+      z-index: 2;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    .doc-item {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .doc-item-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #004b91;
+    }
+
+    [data-theme="dark"] .doc-item-title { color: #38bdf8; }
+
+    .doc-item-quote {
+      font-size: 13px;
+      color: var(--text-muted);
+      border-left: 3px solid #004b91;
+      padding-left: 10px;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-color);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Minimal Top Header -->
+  <!-- Nền Họa Tiết Sư Phạm Chìm -->
+  <div class="bg-pattern"></div>
+
+  <!-- ==========================================================================
+       1. THANH HEADER NHẬN DIỆN THƯƠNG HIỆU HCMUE & ĐIỀU HƯỚNG
+       ========================================================================== -->
   <header class="header">
     <div class="header-container">
-      <div class="brand">
-        <div class="brand-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      
+      <!-- Brand & University Logo -->
+      <div class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <!-- Logo Vector Trường Đại học Sư phạm TP.HCM (HCMUE) -->
+        <div class="hcmue-logo-wrapper" title="Trường Đại học Sư phạm TP. Hồ Chí Minh">
+          <svg viewBox="0 0 100 100" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+            <!-- Vòng tròn nền xanh sư phạm -->
+            <circle cx="50" cy="50" r="48" fill="#004b91" stroke="#f59e0b" stroke-width="2.5"/>
+            <!-- Vòng tròn hào quang bên trong -->
+            <circle cx="50" cy="50" r="43" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="2,2"/>
+            <!-- Cuốn sách mở tri thức -->
+            <path d="M 22 68 Q 50 63 50 78 Q 50 63 78 68 L 78 48 Q 50 43 50 58 Q 50 43 22 48 Z" fill="#ffffff" stroke="#003566" stroke-width="1.2"/>
+            <!-- Búp sen cách điệu 5 cánh vươn cao -->
+            <path d="M 50 20 C 44 32 44 48 50 54 C 56 48 56 32 50 20 Z" fill="#f59e0b"/>
+            <path d="M 50 24 C 40 32 34 44 42 54 C 46 48 48 38 50 24 Z" fill="#ffffff" opacity="0.9"/>
+            <path d="M 50 24 C 60 32 66 44 58 54 C 54 48 52 38 50 24 Z" fill="#ffffff" opacity="0.9"/>
+            <path d="M 50 30 C 34 38 28 50 36 60 C 42 54 46 44 50 30 Z" fill="#ffd166"/>
+            <path d="M 50 30 C 66 38 72 50 64 60 C 58 54 54 44 50 30 Z" fill="#ffd166"/>
+            <!-- Ngọn đuốc / Ngôi sao tri thức -->
+            <circle cx="50" cy="18" r="3.5" fill="#e11d48"/>
+            <path d="M 50 13 L 51.5 17 L 55 17 L 52 19 L 53 23 L 50 20 L 47 23 L 48 19 L 45 17 L 48.5 17 Z" fill="#f59e0b"/>
           </svg>
         </div>
-        <div>
-          <span class="brand-title">SưPhạm AI</span>
-          <span class="brand-subtitle">Trợ lý thiết kế kế hoạch bài dạy</span>
+
+        <div class="brand-text-group">
+          <span class="brand-top-sub">Trường Đại học Sư phạm TP. Hồ Chí Minh</span>
+          <div class="brand-title-wrap">
+            <span class="brand-title">SưPhạm <span>AI</span></span>
+            <span class="brand-badge-tag">Đề tài NCKH</span>
+          </div>
         </div>
       </div>
 
+      <!-- Action Buttons & Tools -->
       <div class="header-right">
+        <!-- Nút Tra cứu Cơ sở Pháp lý Bộ GD&ĐT -->
+        <button type="button" class="header-btn header-btn-scientific" onclick="openLegalModal()" title="Xem cơ sở pháp lý và công văn chuẩn Bộ GD&ĐT">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <span>Chuẩn 5512 & Pháp lý</span>
+        </button>
+
+        <!-- Nút Đổi Theme Sáng / Tối -->
         <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Chuyển chế độ Sáng / Tối">
-          <!-- Sun Icon (hiển thị khi Dark mode) -->
           <svg id="themeIconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
             <circle cx="12" cy="12" r="4"/>
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
           </svg>
-          <!-- Moon Icon (hiển thị khi Light mode) -->
           <svg id="themeIconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
           </svg>
         </button>
 
-        <div class="status-badge">
+        <!-- Trạng thái AI -->
+        <div class="status-badge" title="Mô hình AI Gemini Flash sẵn sàng kết nối">
           <span class="status-dot"></span>
           <span>AI Trực tuyến</span>
         </div>
       </div>
+
     </div>
   </header>
 
-  <!-- Main Container -->
+  <!-- ==========================================================================
+       MAIN CONTAINER
+       ========================================================================== -->
   <main class="main-container">
-    
+
+    <!-- HERO BANNER: GIỚI THIỆU TÍNH KHOA HỌC & 4 TRỤ CỘT BỘ GD&ĐT -->
+    <section class="hero-card">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          Cơ sở khoa học & chuẩn mực sư phạm
+        </div>
+        <h1 class="hero-title">Thiết kế Kế hoạch bài dạy chuẩn Chương trình GDPT 2018</h1>
+        <p class="hero-desc">
+          Hệ thống được phát triển theo định hướng nghiên cứu khoa học của <strong>Trường ĐH Sư phạm TP.HCM</strong>, tích hợp chặt chẽ khung lý thuyết sư phạm <strong>TPACK</strong> và các văn bản chỉ đạo chính thức của <strong>Bộ Giáo dục và Đào tạo</strong>.
+        </p>
+
+        <!-- 4 Trụ cột Khoa học & Pháp lý -->
+        <div class="legal-pillars-grid">
+          <div class="pillar-pill" onclick="openLegalModal('5512')" title="Bấm để xem chi tiết Công văn 5512">
+            <span class="pillar-code">CV 5512/BGDĐT</span>
+            <span class="pillar-desc">Khung KHBD 3 phần, 4 bước tổ chức hoạt động</span>
+          </div>
+          <div class="pillar-pill" onclick="openLegalModal('32')" title="Bấm để xem Chương trình GDPT 2018">
+            <span class="pillar-code">TT 32/2018</span>
+            <span class="pillar-desc">Phát triển 5 phẩm chất, 3 năng lực chung & đặc thù</span>
+          </div>
+          <div class="pillar-pill" onclick="openLegalModal('20')" title="Bấm để xem Chuẩn nghề nghiệp GV">
+            <span class="pillar-code">TT 20/2018</span>
+            <span class="pillar-desc">Chuẩn nghề nghiệp GV: Năng lực lập KH dạy học</span>
+          </div>
+          <div class="pillar-pill" onclick="openLegalModal('tpack')" title="Bấm để xem Khung TPACK & Đánh giá">
+            <span class="pillar-code">Khung TPACK</span>
+            <span class="pillar-desc">Tích hợp Công nghệ - Sư phạm - Đánh giá rubric</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Họa tiết minh họa sinh viên / tri thức sư phạm -->
+      <div class="hero-art">
+        <svg viewBox="0 0 200 160" width="160" height="130" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cuốn sách mở lớn lơ lửng -->
+          <path d="M 30 110 Q 100 95 100 130 Q 100 95 170 110 L 170 60 Q 100 45 100 80 Q 100 45 30 60 Z" fill="#eff6ff" stroke="#004b91" stroke-width="2"/>
+          <path d="M 38 102 Q 100 88 100 120 Q 100 88 162 102 L 162 55 Q 100 42 100 73 Q 100 42 38 55 Z" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+          <!-- Đường gáy sách -->
+          <line x1="100" y1="73" x2="100" y2="128" stroke="#004b91" stroke-width="2"/>
+          <!-- Cây tri thức mọc từ sách -->
+          <path d="M 100 75 Q 98 45 100 25" stroke="#004b91" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="100" cy="22" r="14" fill="#f59e0b" opacity="0.9"/>
+          <!-- Các nhánh lá tri thức -->
+          <ellipse cx="85" cy="35" rx="10" ry="6" fill="#38bdf8" transform="rotate(-30 85 35)"/>
+          <ellipse cx="115" cy="35" rx="10" ry="6" fill="#38bdf8" transform="rotate(30 115 35)"/>
+          <ellipse cx="78" cy="50" rx="9" ry="5" fill="#10b981" transform="rotate(-20 78 50)"/>
+          <ellipse cx="122" cy="50" rx="9" ry="5" fill="#10b981" transform="rotate(20 122 50)"/>
+          <!-- Mũ tốt nghiệp cử nhân sư phạm -->
+          <polygon points="100,10 115,16 100,22 85,16" fill="#002d59"/>
+          <path d="M 88 18 L 88 24 Q 100 28 112 24 L 112 18" fill="#004b91"/>
+          <line x1="115" y1="16" x2="118" y2="25" stroke="#f59e0b" stroke-width="1.5"/>
+          <circle cx="118" cy="26" r="1.5" fill="#f59e0b"/>
+          <!-- Hạt sáng tri thức lấp lánh -->
+          <circle cx="50" cy="30" r="2" fill="#f59e0b"/>
+          <circle cx="150" cy="30" r="2.5" fill="#004b91"/>
+          <circle cx="140" cy="15" r="1.5" fill="#38bdf8"/>
+        </svg>
+      </div>
+    </section>
+
     <!-- 1. KHU VỰC ĐẦU VÀO (INPUT CARD) -->
     <section class="card input-card">
       
       <!-- Tab Switcher -->
       <div class="tab-switcher">
         <button type="button" class="tab-btn active" id="tabCreateBtn" onclick="switchTab('create')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
           </svg>
           Tạo bài dạy mới
         </button>
 
         <button type="button" class="tab-btn" id="tabUpgradeBtn" onclick="switchTab('upgrade')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
             <path d="M12 12v9"/>
             <path d="m16 16-4-4-4 4"/>
@@ -809,26 +1518,67 @@
 
       <!-- TAB 1: TẠO BÀI DẠY MỚI -->
       <div id="tabCreateContent" class="tab-pane active">
+        
+        <!-- Bộ lọc / Tùy biến Sư phạm nhanh -->
+        <div class="pedagogy-config-box">
+          <div class="pedagogy-config-header">
+            <span>⚙️ Định hướng sư phạm (Chọn để AI tích hợp vào bài dạy)</span>
+            <span style="font-weight: 500; font-size: 11px; text-transform: none; color: var(--text-muted);">Chuẩn CV 5512 & TPACK</span>
+          </div>
+
+          <!-- Cấp học -->
+          <div class="pedagogy-row">
+            <span class="pedagogy-label">Cấp học:</span>
+            <button type="button" class="pedagogy-tag active" data-type="level" onclick="togglePedagogyTag(this, 'level', 'THPT')">THPT</button>
+            <button type="button" class="pedagogy-tag" data-type="level" onclick="togglePedagogyTag(this, 'level', 'THCS')">THCS</button>
+            <button type="button" class="pedagogy-tag" data-type="level" onclick="togglePedagogyTag(this, 'level', 'Tiểu học')">Tiểu học</button>
+          </div>
+
+          <!-- Phương pháp dạy học tích cực -->
+          <div class="pedagogy-row">
+            <span class="pedagogy-label">Phương pháp:</span>
+            <button type="button" class="pedagogy-tag active" data-type="method" onclick="togglePedagogyTag(this, 'method', 'Dạy học khám phá')">Dạy học khám phá</button>
+            <button type="button" class="pedagogy-tag" data-type="method" onclick="togglePedagogyTag(this, 'method', 'Dạy học theo trạm')">Dạy học theo trạm</button>
+            <button type="button" class="pedagogy-tag" data-type="method" onclick="togglePedagogyTag(this, 'method', 'Dạy học giải quyết vấn đề')">Giải quyết vấn đề</button>
+            <button type="button" class="pedagogy-tag" data-type="method" onclick="togglePedagogyTag(this, 'method', 'Dạy học dự án')">Dạy học dự án</button>
+            <button type="button" class="pedagogy-tag" data-type="method" onclick="togglePedagogyTag(this, 'method', 'STEM / STEAM')">STEM / STEAM</button>
+          </div>
+
+          <!-- Kỹ thuật dạy học -->
+          <div class="pedagogy-row">
+            <span class="pedagogy-label">Kỹ thuật:</span>
+            <button type="button" class="pedagogy-tag active" data-type="technique" onclick="togglePedagogyTag(this, 'technique', 'Khăn trải bàn')">Khăn trải bàn</button>
+            <button type="button" class="pedagogy-tag" data-type="technique" onclick="togglePedagogyTag(this, 'technique', 'Sơ đồ tư duy')">Sơ đồ tư duy</button>
+            <button type="button" class="pedagogy-tag" data-type="technique" onclick="togglePedagogyTag(this, 'technique', 'K-W-L')">K-W-L</button>
+            <button type="button" class="pedagogy-tag" data-type="technique" onclick="togglePedagogyTag(this, 'technique', 'Trò chơi học tập (Gamification)')">Trò chơi Gamification</button>
+            <button type="button" class="pedagogy-tag" data-type="technique" onclick="togglePedagogyTag(this, 'technique', 'Mảnh ghép')">Mảnh ghép</button>
+          </div>
+        </div>
+
         <div class="textarea-wrapper">
           <textarea 
             id="promptInput" 
             rows="4" 
-            placeholder="Nhập ngắn gọn ý tưởng bài dạy của bạn (Ví dụ: Soạn bài dạy Hàm số bậc hai lớp 10, chú trọng hoạt động thực tế vui nhộn, có trò chơi khởi động...)"
+            placeholder="Nhập tên bài dạy, môn học và ý tưởng sư phạm của bạn...&#10;Ví dụ: Soạn bài dạy 'Hàm số bậc hai' - Toán 10, liên hệ quỹ đạo bóng rổ, có hoạt động trải nghiệm phần mềm GeoGebra..."
+            onfocus="mascotSay('Hãy nhập tên bài học và môn học bạn cần soạn nhé! Mình sẽ giúp bạn đối chiếu chuẩn 5512.')"
           ></textarea>
         </div>
 
         <!-- Quick Inspiration Pills -->
         <div class="suggestions-wrapper">
-          <span class="suggestions-label">Gợi ý ý tưởng nhanh:</span>
+          <span class="suggestions-label">Ý tưởng sư phạm gợi ý:</span>
           <div class="suggestions-list">
-            <button type="button" class="suggestion-chip" onclick="fillPrompt('Hàm số bậc hai lớp 10, liên hệ quỹ đạo ném bóng rổ và cổng vòm')">
-              💡 Hàm số bậc hai lớp 10, liên hệ quỹ đạo ném bóng rổ và cổng vòm
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Hàm số bậc hai lớp 10, liên hệ quỹ đạo ném bóng rổ và cổng vòm kiến trúc')">
+              💡 Toán 10: Hàm số bậc hai, liên hệ quỹ đạo bóng rổ & cổng vòm
             </button>
-            <button type="button" class="suggestion-chip" onclick="fillPrompt('Biện pháp tu từ Nói giảm - Nói tránh lớp 8, hoạt động đóng vai tế nhị')">
-              💡 Biện pháp tu từ Nói giảm - Nói tránh lớp 8, hoạt động đóng vai tế nhị
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Biện pháp tu từ Nói giảm - Nói tránh lớp 8, hoạt động đóng vai tình huống giao tiếp tế nhị')">
+              💡 Ngữ văn 8: Nói giảm - Nói tránh, hoạt động đóng vai tế nhị
             </button>
-            <button type="button" class="suggestion-chip" onclick="fillPrompt('Sự truyền âm trong các môi trường lớp 7, trò chơi điện thoại ống bơ')">
-              💡 Sự truyền âm trong các môi trường lớp 7, trò chơi điện thoại ống bơ
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Sự truyền âm trong các môi trường lớp 7, trò chơi thực nghiệm điện thoại ống bơ')">
+              💡 KHTN 7: Sự truyền âm, thí nghiệm điện thoại ống bơ
+            </button>
+            <button type="button" class="suggestion-chip" onclick="fillPrompt('Quang hợp ở thực vật lớp 11, dạy học theo trạm và thí nghiệm chứng minh sự tạo thành tinh bột')">
+              💡 Sinh học 11: Quang hợp ở thực vật, dạy học theo trạm thực nghiệm
             </button>
           </div>
         </div>
@@ -836,10 +1586,10 @@
         <!-- Action Button -->
         <div class="action-btn-wrapper">
           <button type="button" class="btn btn-primary" id="btnCreate" onclick="handleGenerateNew()">
-            <svg id="createSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="createSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
             </svg>
-            <span id="createBtnText">Tạo kế hoạch bài dạy</span>
+            <span id="createBtnText">Thiết kế kế hoạch bài dạy chuẩn 5512</span>
           </button>
         </div>
       </div>
@@ -856,8 +1606,8 @@
               <path d="M12 12v9"/>
               <path d="m16 16-4-4-4 4"/>
             </svg>
-            <div class="drop-title">Kéo thả file giáo án (.docx, .pdf, .txt) hoặc bấm để chọn tệp</div>
-            <div class="drop-sub">Hỗ trợ tải lên kế hoạch bài dạy cũ cần chỉnh sửa</div>
+            <div class="drop-title">Kéo thả file kế hoạch bài dạy (.docx, .pdf, .txt) hoặc bấm để chọn tệp</div>
+            <div class="drop-sub">Tự động rà soát mục tiêu, năng lực và cấu trúc 4 bước theo Công văn 5512</div>
           </div>
 
           <div id="dropZoneSelected" class="drop-zone-selected" style="display: none;">
@@ -870,7 +1620,7 @@
             </svg>
             <div class="file-meta">
               <div class="file-name" id="selectedFileName">Giao_an_cu.docx</div>
-              <div class="file-size" id="selectedFileSize">25 KB • Sẵn sàng nâng cấp</div>
+              <div class="file-size" id="selectedFileSize">25 KB • Sẵn sàng nâng cấp chuẩn 5512</div>
             </div>
             <button type="button" class="btn-remove-file" onclick="removeSelectedFile(event)" title="Hủy chọn tệp">✕</button>
           </div>
@@ -878,37 +1628,36 @@
 
         <!-- Upgrade Notes -->
         <div class="upgrade-notes-wrapper">
-          <label class="input-label" for="upgradeNotes">Bạn muốn AI cải tiến điều gì?</label>
+          <label class="input-label" for="upgradeNotes">Bạn muốn nâng cấp hoặc tinh chỉnh điều gì?</label>
           <textarea 
             id="upgradeNotes" 
             rows="3" 
-            placeholder="Ví dụ: Thêm trò chơi khởi động, rút ngắn thời gian phần lý thuyết, bổ sung câu hỏi phân hóa cho học sinh khá giỏi..."
+            placeholder="Ví dụ: Bổ sung trò chơi khởi động, thiết kế lại hoạt động khám phá theo phương pháp dạy học theo trạm, thêm rubric đánh giá học sinh..."
+            onfocus="mascotSay('Bạn muốn thêm trò chơi, bổ sung câu hỏi phân hóa hay chia lại thời lượng các hoạt động?')"
           ></textarea>
         </div>
 
         <!-- Upgrade Button -->
         <div class="action-btn-wrapper">
           <button type="button" class="btn btn-emerald" id="btnUpgrade" onclick="handleGenerateUpgrade()">
-            <svg id="upgradeSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="upgradeSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
             </svg>
-            <span id="upgradeBtnText">Nâng cấp bài dạy</span>
+            <span id="upgradeBtnText">Nâng cấp bài dạy chuẩn Công văn 5512</span>
           </button>
         </div>
       </div>
 
     </section>
 
-    <!-- 2. KHU VỰC HIỂN THỊ KẾT QUẢ (NOTION / CHATGPT CANVAS) -->
+    <!-- 2. KHU VỰC HIỂN THỊ KẾT QUẢ GIÁO ÁN -->
     <section class="results-section">
       
-      <!-- Minimalist Top Toolbar -->
+      <!-- Toolbar thao tác -->
       <div class="toolbar" id="resultToolbar" style="display: none;">
         <div class="toolbar-status">
           <span class="status-dot-emerald"></span>
-          <span>Văn bản do AI tạo sinh</span>
-          <span class="sep">•</span>
-          <span class="hint">Có thể bấm trực tiếp để gõ sửa tay</span>
+          <span>Kế hoạch bài dạy chuẩn Bộ GD&ĐT • Có thể nhấp sửa trực tiếp</span>
         </div>
 
         <div class="toolbar-actions">
@@ -917,16 +1666,16 @@
               <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
               <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
             </svg>
-            <span id="copyBtnText">📋 Sao chép</span>
+            <span id="copyBtnText">Sao chép</span>
           </button>
 
           <button type="button" class="tool-btn" onclick="handleExportWord()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#004b91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" x2="12" y1="15" y2="3"/>
             </svg>
-            <span>📥 Xuất Word (.doc)</span>
+            <span>Xuất Word (.doc)</span>
           </button>
 
           <button type="button" class="tool-btn tool-btn-blue" id="btnRegenerate" onclick="handleRegenerate()">
@@ -936,7 +1685,7 @@
               <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
               <path d="M16 16h5v5"/>
             </svg>
-            <span>🔄 Tạo phương án khác</span>
+            <span>Tạo phương án khác</span>
           </button>
         </div>
       </div>
@@ -947,43 +1696,42 @@
         <!-- State 1: Placeholder lúc mới vào trang -->
         <div id="statePlaceholder" class="state-container">
           <div class="state-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
-              <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
-              <path d="M10 9H8"/>
-              <path d="M16 13H8"/>
-              <path d="M16 17H8"/>
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+              <path d="M6 14h6"/>
             </svg>
           </div>
-          <h3 class="state-title">Khu vực trả lời kế hoạch bài dạy</h3>
+          <h3 class="state-title">Khu vực hiển thị Kế hoạch bài dạy</h3>
           <p class="state-sub">
-            Kế hoạch bài dạy do AI thiết kế sẽ hiển thị tại đây sau khi bạn nhấn nút <strong>"Tạo kế hoạch bài dạy"</strong> ở trên.
+            Kế hoạch bài dạy do AI thiết kế sẽ hiển thị tại đây theo chuẩn <strong>Công văn 5512/BGDĐT-GDTrH</strong> (gồm Mục tiêu, Thiết bị/Học liệu, 4 Hoạt động học và Hồ sơ đánh giá).
           </p>
         </div>
 
         <!-- State 2: Đang tải (Loading Spinner) -->
         <div id="stateLoading" class="state-container" style="display: none;">
           <div class="spinner-pulse">
-            <svg class="spin-animation" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="spin-animation" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#004b91" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
             </svg>
           </div>
-          <h3 class="state-title">AI đang phân tích và thiết kế kế hoạch bài dạy...</h3>
-          <p class="state-sub">Đang xây dựng mục tiêu bài học, học liệu và chuỗi hoạt động sư phạm chuẩn 5512</p>
+          <h3 class="state-title">AI đang phân tích và thiết kế bài dạy chuẩn 5512...</h3>
+          <p class="state-sub">Đang xây dựng yêu cầu cần đạt, thiết bị học liệu, chuỗi 4 hoạt động học và đối chiếu tiêu chí sư phạm.</p>
         </div>
 
         <!-- State 3: Hiển thị lỗi nếu có -->
         <div id="stateError" class="state-container" style="display: none;">
-          <div class="state-icon-error">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="state-icon" style="background: #ffe4e6; color: #e11d48;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/>
-              <line x1="12" x2="12" y1="8" y2="12"/>
-              <line x1="12" x2="12.01" y1="16" y2="16"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
           </div>
           <h3 class="state-title">Không thể kết nối AI</h3>
           <p class="state-sub" id="errorMessage">Đã có lỗi xảy ra</p>
-          <button type="button" class="btn btn-sm" onclick="handleGenerateNew()">Thử lại</button>
+          <button type="button" class="btn" style="width: auto; padding: 8px 18px; margin-top: 8px; font-size: 13px;" onclick="handleGenerateNew()">Thử lại</button>
         </div>
 
         <!-- State 4: Hiển thị tài liệu Notion AI có thể chỉnh sửa trực tiếp -->
@@ -991,15 +1739,16 @@
           id="documentCanvas" 
           class="notion-document" 
           contenteditable="true" 
+          style="display: none;" 
           spellcheck="false"
-          style="display: none;"
+          title="Bạn có thể bấm trực tiếp vào đây để chỉnh sửa văn bản"
         ></div>
 
       </div>
 
       <!-- Small Bottom Disclaimer -->
       <div class="disclaimer" id="resultDisclaimer" style="display: none;">
-        Nội dung do AI gợi ý hỗ trợ. Người dạy cần kiểm chứng lại trước khi sử dụng.
+        Kế hoạch bài dạy được hỗ trợ tự động hóa bởi trí tuệ nhân tạo. Người dạy cần rà soát và điều chỉnh linh hoạt cho phù hợp với thực tiễn đối tượng học sinh (theo Công văn 2613/BGDĐT-GDTrH).
       </div>
 
     </section>
@@ -1007,7 +1756,138 @@
   </main>
 
   <!-- ==========================================================================
-       3. LOGIC JAVASCRIPT THUẦN (XỬ LÝ TƯƠNG TÁC & GỌI AI GOOGLE GEMINI)
+       MASCOT HOẠT HÌNH: "BÉ SÁCH SƯ PHẠM" (BOOKIE)
+       ========================================================================== -->
+  <div class="mascot-container" id="mascotContainer">
+    <!-- Bong Bóng Thoại Hướng Dẫn -->
+    <div class="mascot-bubble" id="mascotBubble">
+      <div class="mascot-bubble-header">
+        <div class="mascot-name-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+          Bé Sách Sư Phạm
+        </div>
+        <button type="button" class="mascot-close-btn" onclick="toggleMascotBubble()" title="Tạm đóng lời thoại">✕</button>
+      </div>
+      <p class="mascot-text" id="mascotSpeechText">
+        Chào bạn! Mình là Bé Sách Sư Phạm (HCMUE) 📘✨. Hãy nhập môn học & tên bài dạy, mình sẽ cùng bạn thiết kế bài giảng chuẩn Công văn 5512 nhé!
+      </p>
+      <div class="mascot-bubble-footer">
+        <button type="button" class="mascot-tip-btn" onclick="nextPedagogyTip()">💡 Nhận mẹo sư phạm</button>
+      </div>
+    </div>
+
+    <!-- Nút Avatar Hoạt Hình Bé Sách -->
+    <div class="mascot-avatar-btn" id="mascotAvatar" onclick="handleMascotClick()" title="Bấm vào Bé Sách để trò chuyện và nhận mẹo sư phạm!">
+      <svg viewBox="0 0 100 100" width="58" height="58" xmlns="http://www.w3.org/2000/svg">
+        <!-- Bìa sau cuốn sách màu xanh HCMUE -->
+        <rect x="18" y="24" width="64" height="60" rx="8" fill="#004b91"/>
+        <!-- Ruột sách mở cong phấp phới -->
+        <path d="M 22 28 Q 50 20 50 32 Q 50 20 78 28 L 78 78 Q 50 70 50 82 Q 50 70 22 78 Z" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+        <!-- Đường rãnh gáy sách -->
+        <line x1="50" y1="32" x2="50" y2="82" stroke="#004b91" stroke-width="1.5"/>
+        <!-- Dải ruy băng đánh dấu trang màu vàng rực rỡ -->
+        <path d="M 48 30 L 48 88 L 52 84 L 56 88 L 56 30 Z" fill="#f59e0b"/>
+        <!-- Cặp kính tròn trí thức -->
+        <circle cx="37" cy="52" r="8" fill="none" stroke="#002d59" stroke-width="2"/>
+        <circle cx="63" cy="52" r="8" fill="none" stroke="#002d59" stroke-width="2"/>
+        <line x1="45" y1="52" x2="55" y2="52" stroke="#002d59" stroke-width="2"/>
+        <!-- Đôi mắt to tròn biết chớp mắt -->
+        <g class="mascot-eye">
+          <ellipse cx="37" cy="52" rx="4" ry="5" fill="#0f172a"/>
+          <circle cx="35.5" cy="50" r="1.5" fill="#ffffff"/>
+          <ellipse cx="63" cy="52" rx="4" ry="5" fill="#0f172a"/>
+          <circle cx="61.5" cy="50" r="1.5" fill="#ffffff"/>
+        </g>
+        <!-- Má hồng dễ thương -->
+        <circle cx="28" cy="59" r="4" fill="#f472b6" opacity="0.6"/>
+        <circle cx="72" cy="59" r="4" fill="#f472b6" opacity="0.6"/>
+        <!-- Miệng cười thân thiện -->
+        <path d="M 46 62 Q 50 67 54 62" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Mũ cử nhân tốt nghiệp nhỏ nhắn trên đầu -->
+        <polygon points="50,10 65,15 50,20 35,15" fill="#002d59"/>
+        <path d="M 38 17 L 38 22 Q 50 25 62 22 L 62 17" fill="#004b91"/>
+        <line x1="65" y1="15" x2="68" y2="24" stroke="#f59e0b" stroke-width="1.8"/>
+        <circle cx="68" cy="25" r="1.5" fill="#f59e0b"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: TRA CỨU CĂN CỨ PHÁP LÝ & CÔNG VĂN BỘ GIÁO DỤC VÀ ĐÀO TẠO
+       ========================================================================== -->
+  <div class="modal-backdrop" id="legalModal" onclick="closeLegalModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#004b91" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Hệ thống Căn cứ Khoa học & Pháp lý Sư phạm
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeLegalModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- 1. Công văn 5512 -->
+        <div class="doc-item" id="legal-5512">
+          <div class="doc-item-title">1. Công văn số 5512/BGDĐT-GDTrH (Ngày 18/12/2020)</div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Nội dung trọng tâm:</strong> Về việc xây dựng và tổ chức thực hiện kế hoạch giáo dục của nhà trường. Đặc biệt <em>Phụ lục 4: Khung kế hoạch bài dạy</em> quy định cấu trúc 3 phần bắt buộc:</p>
+          <ul style="padding-left: 20px; margin: 4px 0;">
+            <li><strong>I. Mục tiêu:</strong> Xác định rõ Kiến thức, Năng lực (chung & đặc thù) và Phẩm chất chủ yếu theo động từ hành vi đo lường được.</li>
+            <li><strong>II. Thiết bị dạy học và học liệu:</strong> Liệt kê thiết bị của GV và HS (học liệu số, phiếu học tập, mô hình).</li>
+            <li><strong>III. Tiến trình dạy học:</strong> Chuỗi 4 hoạt động: (1) Khởi động/Mở đầu; (2) Hình thành kiến thức mới/Khám phá; (3) Luyện tập; (4) Vận dụng.</li>
+          </ul>
+          <div class="doc-item-quote">
+            "Mỗi hoạt động học phải được tổ chức thực hiện đầy đủ 4 bước: (1) Chuyển giao nhiệm vụ; (2) Thực hiện nhiệm vụ; (3) Báo cáo, thảo luận; (4) Kết luận, nhận định."
+          </div>
+        </div>
+
+        <!-- 2. Thông tư 32/2018/TT-BGDĐT -->
+        <div class="doc-item" id="legal-32">
+          <div class="doc-item-title">2. Thông tư số 32/2018/TT-BGDĐT (Ngày 26/12/2018)</div>
+          <p><strong>Nội dung trọng tâm:</strong> Ban hành Chương trình Giáo dục phổ thông (CT GDPT 2018). Chuyển từ nền giáo dục nặng về truyền thụ kiến thức sang phát triển toàn diện phẩm chất và năng lực người học.</p>
+          <ul style="padding-left: 20px; margin: 4px 0;">
+            <li><strong>5 Phẩm chất chủ yếu:</strong> Yêu nước, Nhân ái, Chăm chỉ, Trung thực, Trách nhiệm.</li>
+            <li><strong>3 Năng lực chung:</strong> Tự chủ & tự học, Giao tiếp & hợp tác, Giải quyết vấn đề & sáng tạo.</li>
+            <li><strong>Các Năng lực đặc thù:</strong> Ngôn ngữ, Tính toán, Khoa học, Công nghệ, Tin học, Thẩm mỹ, Thể chất.</li>
+          </ul>
+        </div>
+
+        <!-- 3. Công văn 2613/BGDĐT & 3175/BGDĐT -->
+        <div class="doc-item">
+          <div class="doc-item-title">3. Công văn 2613/BGDĐT-GDTrH & Công văn 3175/BGDĐT-GDTrH</div>
+          <p><strong>Nội dung trọng tâm:</strong> Hướng dẫn triển khai thực hiện linh hoạt Công văn 5512:</p>
+          <div class="doc-item-quote">
+            "Không áp dụng máy móc, không yêu cầu ghi chép chi tiết lời thoại của giáo viên và học sinh như một kịch bản đóng kịch; chú trọng tính linh hoạt, sáng tạo và phù hợp thực tế đối tượng học sinh."
+          </div>
+        </div>
+
+        <!-- 4. Khung TPACK & Chuẩn nghề nghiệp GV -->
+        <div class="doc-item" id="legal-tpack">
+          <div class="doc-item-title">4. Khung Lý thuyết TPACK (Mishra & Koehler) & Thông tư 20/2018/TT-BGDĐT</div>
+          <p><strong>Mô hình TPACK (Technological Pedagogical Content Knowledge):</strong> Giao thoa giữa Tri thức Công nghệ (TK), Tri thức Sư phạm (PK) và Tri thức Nội dung (CK) giúp sinh viên sư phạm HCMUE ứng dụng AI và công nghệ số một cách chuẩn mực vào từng bài học.</p>
+          <p><strong>Thông tư 20/2018/TT-BGDĐT:</strong> Chuẩn nghề nghiệp giáo viên cơ sở giáo dục phổ thông - Tiêu chuẩn phát triển chuyên môn, nghiệp vụ.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER BẢN QUYỀN HỌC THUẬT -->
+  <footer class="footer">
+    <div style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">
+      TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH (HCMUE)
+    </div>
+    <div>Sản phẩm Đề tài Nghiên cứu Khoa học Sinh viên • Thiết kế theo chuẩn Công văn 5512/BGDĐT-GDTrH</div>
+  </footer>
+
+  <!-- ==========================================================================
+       3. LOGIC JAVASCRIPT THUẦN (XỬ LÝ SƯ PHẠM, MASCOT & AI GEMINI)
        ========================================================================== -->
   <script>
     // -------------------------------------------------------------
@@ -1025,18 +1905,12 @@
         document.documentElement.setAttribute('data-theme', 'dark');
         const sun = document.getElementById('themeIconSun');
         const moon = document.getElementById('themeIconMoon');
-        if (sun && moon) {
-          sun.style.display = 'block';
-          moon.style.display = 'none';
-        }
+        if (sun && moon) { sun.style.display = 'block'; moon.style.display = 'none'; }
       } else {
         document.documentElement.removeAttribute('data-theme');
         const sun = document.getElementById('themeIconSun');
         const moon = document.getElementById('themeIconMoon');
-        if (sun && moon) {
-          sun.style.display = 'none';
-          moon.style.display = 'block';
-        }
+        if (sun && moon) { sun.style.display = 'none'; moon.style.display = 'block'; }
       }
       localStorage.setItem('spham_theme', theme);
     }
@@ -1045,9 +1919,9 @@
       const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyTheme(newTheme);
+      mascotSay(newTheme === 'dark' ? 'Đã bật chế độ ban đêm êm mắt để bạn soạn giáo án nhé!' : 'Đã chuyển sang giao diện ban ngày sáng sủa!');
     }
 
-    // Khởi tạo theme ngay khi script chạy
     initTheme();
 
     // -------------------------------------------------------------
@@ -1062,6 +1936,21 @@
     let uploadedFileData = null;
     let isGenerating = false;
 
+    // Tùy chọn Sư phạm hoạt động
+    const selectedPedagogy = {
+      level: 'THPT',
+      method: 'Dạy học khám phá',
+      technique: 'Khăn trải bàn'
+    };
+
+    function togglePedagogyTag(btn, type, value) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.pedagogy-tag').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      selectedPedagogy[type] = value;
+      mascotSay('Đã chọn ' + (type === 'level' ? 'cấp ' : '') + value + '. Mình sẽ định hướng bài dạy theo tiêu chí này!');
+    }
+
     // Chuyển Tab (Tạo mới vs Cải tiến cũ)
     function switchTab(tab) {
       const tabCreateBtn = document.getElementById('tabCreateBtn');
@@ -1074,11 +1963,13 @@
         tabUpgradeBtn.classList.remove('active');
         tabCreateContent.classList.add('active');
         tabUpgradeContent.classList.remove('active');
+        mascotSay('Hãy nhập tên bài dạy mới, mình sẽ cùng bạn lên khung chuẩn Công văn 5512 nhé!');
       } else {
         tabUpgradeBtn.classList.add('active');
         tabCreateBtn.classList.remove('active');
         tabUpgradeContent.classList.add('active');
         tabCreateContent.classList.remove('active');
+        mascotSay('Bạn có tệp giáo án cũ (.docx, .pdf, .txt)? Tải lên đây để mình hỗ trợ nâng cấp nhé!');
       }
     }
 
@@ -1087,6 +1978,69 @@
       const promptInput = document.getElementById('promptInput');
       promptInput.value = text;
       promptInput.focus();
+      mascotSay('Ý tưởng bài này rất hay! Nhấn nút "Thiết kế kế hoạch bài dạy" ở dưới để mình tiến hành nhé!');
+    }
+
+    // -------------------------------------------------------------
+    // MASCOT BOOKIE: LỜI THOẠI & MẸO SƯ PHẠM TƯƠNG TÁC
+    // -------------------------------------------------------------
+    const pedagogyTips = [
+      '💡 Mẹo 5512: Mục tiêu bài học nên dùng động từ hành vi Bloom có thể đo lường được (như: "Vẽ được", "Phát biểu được", "Giải thích được") thay vì "Hiểu được".',
+      '💡 Mẹo hoạt động Khởi động: Tránh kiểm tra bài cũ áp lực; hãy dùng tình huống thực tế hoặc trò chơi vui nhộn 5-7 phút để kích hoạt sự tò mò của học sinh.',
+      '💡 Mẹo Chu trình 4 bước: Công văn 5512 yêu cầu mọi hoạt động học đều phải có đủ 4 bước: (1) Chuyển giao nhiệm vụ -> (2) Thực hiện nhiệm vụ -> (3) Báo cáo, thảo luận -> (4) Kết luận, nhận định.',
+      '💡 Mẹo phân hóa: Khi thiết kế phiếu học tập, nên chia thành 3 mức độ: Cơ bản (cho đại trà), Nâng cao (cho học sinh khá giỏi) và Mở rộng thực tiễn.',
+      '💡 Mẹo TPACK: Không lạm dụng công nghệ trình chiếu thụ động; hãy dùng học liệu số tương tác như mô phỏng PhET, GeoGebra, Padlet, Kahoot để học sinh được trực tiếp thao tác.',
+      '💡 Mẹo Thông tư 22/2021: Đánh giá thường xuyên chú trọng sự tiến bộ của từng học sinh thông qua lời nhận xét, rubric hoặc bảng kiểm tự đánh giá.',
+      '💡 Mẹo phương pháp Dạy học theo trạm: Chia lớp thành 3-4 góc học tập, mỗi trạm có nhiệm vụ và học liệu riêng giúp học sinh rèn luyện năng lực tự chủ và tự học.'
+    ];
+
+    let currentTipIndex = 0;
+
+    function mascotSay(text) {
+      const bubble = document.getElementById('mascotBubble');
+      const textElem = document.getElementById('mascotSpeechText');
+      if (textElem && bubble) {
+        textElem.innerHTML = text;
+        bubble.style.display = 'block';
+      }
+    }
+
+    function toggleMascotBubble() {
+      const bubble = document.getElementById('mascotBubble');
+      if (bubble) {
+        bubble.style.display = bubble.style.display === 'none' ? 'block' : 'none';
+      }
+    }
+
+    function handleMascotClick() {
+      nextPedagogyTip();
+    }
+
+    function nextPedagogyTip() {
+      const tip = pedagogyTips[currentTipIndex % pedagogyTips.length];
+      currentTipIndex++;
+      mascotSay(tip);
+    }
+
+    // -------------------------------------------------------------
+    // MODAL TRA CỨU CĂN CỨ PHÁP LÝ
+    // -------------------------------------------------------------
+    function openLegalModal(targetId) {
+      const modal = document.getElementById('legalModal');
+      modal.style.display = 'flex';
+      if (targetId) {
+        setTimeout(() => {
+          const target = document.getElementById('legal-' + targetId);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+      mascotSay('Đây là hệ thống các văn bản chỉ đạo của Bộ GD&ĐT làm căn cứ khoa học cho hệ thống.');
+    }
+
+    function closeLegalModal(e) {
+      if (!e || e.target.id === 'legalModal' || e.target.classList.contains('modal-close-btn')) {
+        document.getElementById('legalModal').style.display = 'none';
+      }
     }
 
     // -------------------------------------------------------------
@@ -1097,7 +2051,6 @@
     ['dragenter', 'dragover'].forEach(eventName => {
       dropZone.addEventListener(eventName, (e) => {
         e.preventDefault();
-        e.stopPropagation();
         dropZone.classList.add('dragover');
       });
     });
@@ -1105,14 +2058,13 @@
     ['dragleave', 'drop'].forEach(eventName => {
       dropZone.addEventListener(eventName, (e) => {
         e.preventDefault();
-        e.stopPropagation();
         dropZone.classList.remove('dragover');
       });
     });
 
     dropZone.addEventListener('drop', (e) => {
-      const file = e.dataTransfer.files[0];
-      if (file) processSelectedFile(file);
+      const files = e.dataTransfer.files;
+      if (files.length > 0) processSelectedFile(files[0]);
     });
 
     function handleFileSelect(e) {
@@ -1125,14 +2077,15 @@
       document.getElementById('dropZoneEmpty').style.display = 'none';
       document.getElementById('dropZoneSelected').style.display = 'flex';
       document.getElementById('selectedFileName').textContent = file.name;
-      document.getElementById('selectedFileSize').textContent = `${sizeKB} KB • Sẵn sàng nâng cấp`;
+      document.getElementById('selectedFileSize').textContent = sizeKB + ' KB • Đã sẵn sàng nâng cấp';
+      mascotSay('Đã nạp file ' + file.name + '! Bạn hãy điền thêm yêu cầu cải tiến nếu có, rồi bấm Nâng cấp nhé!');
 
       if (file.name.endsWith('.txt')) {
         const reader = new FileReader();
         reader.onload = (event) => {
           uploadedFileData = {
             name: file.name,
-            size: `${sizeKB} KB`,
+            size: sizeKB + ' KB',
             content: event.target.result
           };
         };
@@ -1140,8 +2093,8 @@
       } else {
         uploadedFileData = {
           name: file.name,
-          size: `${sizeKB} KB`,
-          content: `Tệp giáo án: ${file.name}`
+          size: sizeKB + ' KB',
+          content: 'Tệp giáo án: ' + file.name
         };
       }
     }
@@ -1152,65 +2105,87 @@
       document.getElementById('fileInput').value = '';
       document.getElementById('dropZoneEmpty').style.display = 'block';
       document.getElementById('dropZoneSelected').style.display = 'none';
+      mascotSay('Đã hủy chọn tệp. Bạn có thể chọn tệp khác bất kỳ lúc nào.');
     }
 
     // -------------------------------------------------------------
-    // GỌI GOOGLE GEMINI TẠO SINH TRỰC TIẾP
+    // GỌI GOOGLE GEMINI TẠO SINH TRỰC TIẾP VỚI PROMPT KHOA HỌC 5512
     // -------------------------------------------------------------
     async function callGeminiAI(userPrompt, isUpgrade = false, existingDocContent = '') {
       const promptTrimmed = userPrompt.trim();
 
-      const systemInstruction = `Bạn là SưPhạm AI - Trợ lý trí tuệ nhân tạo chuyên sâu hỗ trợ sinh viên sư phạm và giáo viên thiết kế kế hoạch bài dạy theo chuẩn chương trình Giáo dục Phổ thông 2018 (Công văn 5512), phong cách chuyên nghiệp, hiện đại tương tự Notion AI / ChatGPT.
+      const systemInstruction = `Bạn là SưPhạm AI - Trợ lý trí tuệ nhân tạo chuyên sâu hỗ trợ sinh viên sư phạm và giáo viên của Trường Đại học Sư phạm TP. Hồ Chí Minh (HCMUE) thiết kế kế hoạch bài dạy chuẩn mực theo quy định của BỘ GIÁO DỤC VÀ ĐÀO TẠO.
+
+CĂN CỨ PHÁP LÝ & KHOA HỌC BẮT BUỘC BÁM SÁT:
+1. Công văn số 5512/BGDĐT-GDTrH (18/12/2020) của Bộ GD&ĐT - Phụ lục 4: Khung kế hoạch bài dạy.
+2. Thông tư số 32/2018/TT-BGDĐT (26/12/2018) của Bộ GD&ĐT - Chương trình Giáo dục phổ thông 2018 (CT GDPT 2018).
+3. Thông tư số 20/2018/TT-BGDĐT (22/08/2018) - Quy định chuẩn nghề nghiệp giáo viên cơ sở giáo dục phổ thông.
+4. Công văn số 2613/BGDĐT-GDTrH & 3175/BGDĐT-GDTrH - Hướng dẫn triển khai linh hoạt, tinh giản, thực chất, tránh máy móc.
+5. Mô hình lý thuyết TPACK (Mishra & Koehler, 2006) - Tích hợp Công nghệ, Sư phạm và Tri thức nội dung môn học.
+6. Thông tư số 22/2021/TT-BGDĐT và Thông tư số 27/2020/TT-BGDĐT - Đánh giá học sinh theo định hướng năng lực.
+
+CẤU HÌNH SƯ PHẠM BỔ TRỢ ĐƯỢC CHỌN:
+- Cấp học: ${selectedPedagogy.level}
+- Phương pháp dạy học trọng tâm: ${selectedPedagogy.method}
+- Kỹ thuật dạy học tích cực: ${selectedPedagogy.technique}
 
 QUY TẮC PHẢN HỒI:
 1. NẾU NGƯỜI DÙNG CHÀO HỎI, NÓI CHUYỆN HOẶC CHƯA NÊU RÕ CHỦ ĐỀ BÀI DẠY (Ví dụ: "hello", "hi", "xin chào", "test", câu hỏi chung chung):
-   - Phản hồi tự nhiên, thân thiện và lịch sự như một trợ lý AI thông minh.
+   - Phản hồi tự nhiên, thân thiện và lịch sự với tư cách là trợ lý SưPhạm AI (HCMUE).
    - TUYỆT ĐỐI KHÔNG gò ép vào khung giáo án (KHÔNG tạo mục tiêu bài học hay chuỗi hoạt động cho lời chào).
-   - Giới thiệu ngắn gọn bạn có thể giúp gì và gợi ý người dùng nhập môn học, khối lớp, tên bài dạy hoặc ý tưởng sư phạm để bắt đầu.
+   - Giới thiệu ngắn gọn bạn có thể giúp thiết kế giáo án chuẩn Công văn 5512 cho bất kỳ môn học nào và gợi ý người dùng nhập tên bài dạy.
 
 2. NẾU LÀ YÊU CẦU THIẾT KẾ HOẶC CẢI TIẾN KẾ HOẠCH BÀI DẠY:
-   - Hãy thiết kế một kế hoạch bài dạy hoàn chỉnh, chi tiết, chất lượng cao, định dạng Markdown rõ ràng, trang trọng và mạch lạc:
-     # TÊN BÀI DẠY (Môn học - Khối lớp)
-     
-     ## I. MỤC TIÊU BÀI HỌC
-     - **1. Về kiến thức:** Nêu rõ các yêu cầu cần đạt bám sát chương trình GDPT 2018 (dùng động từ hành vi Bloom cụ thể).
-     - **2. Về năng lực:**
-       + *Năng lực chung:* Tự chủ & tự học, Giao tiếp & hợp tác, Giải quyết vấn đề & sáng tạo.
-       + *Năng lực đặc thù:* Các năng lực chuyên môn của môn học.
-     - **3. Về phẩm chất:** Yêu nước, nhân ái, chăm chỉ, trung thực, trách nhiệm (gắn với nội dung bài học).
-     
-     ## II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU
-     - **1. Giáo viên:** Giáo án, bài trình chiếu, phiếu học tập, học liệu số, thiết bị thí nghiệm (nếu có).
-     - **2. Học sinh:** SGK, vở ghi, đồ dùng học tập cá nhân, sản phẩm chuẩn bị trước.
-     
-     ## III. TIẾN TRÌNH DẠY HỌC
-     (Bao gồm 4 hoạt động chuẩn 5512, mỗi hoạt động ghi rõ Thời lượng, Mục tiêu, Nội dung và Sản phẩm dự kiến):
-     ### 1. Hoạt động 1: Khởi động (Xác định vấn đề / nhiệm vụ học tập)
-     - **Mục tiêu:** Tạo tâm thế, kết nối tri thức cũ - mới.
-     - **Nội dung:** [Trò chơi, tình huống thực tiễn, video clip...]
-     - **Sản phẩm:** [Câu trả lời của HS, kết quả trò chơi...]
-     - **Tổ chức thực hiện (4 bước 5512):**
-       + *Chuyển giao nhiệm vụ:* Giáo viên...
-       + *Thực hiện nhiệm vụ:* Học sinh...
-       + *Báo cáo, thảo luận:* Học sinh trình bày...
-       + *Kết luận, nhận định:* Giáo viên chốt kiến thức...
-     
-     ### 2. Hoạt động 2: Hình thành kiến thức mới (Khám phá)
-     [Trình bày tương tự đầy đủ 4 bước]
-     
-     ### 3. Hoạt động 3: Luyện tập
-     [Hệ thống bài tập phân hóa, 4 bước tổ chức]
-     
-     ### 4. Hoạt động 4: Vận dụng
-     [Tình huống thực tế, mở rộng, định hướng tự học ở nhà]
-     
-     ## IV. HỒ SƠ DẠY HỌC & ĐÁNH GIÁ
-     - **Phiếu học tập:** (Trình bày chi tiết nội dung các câu hỏi/nhiệm vụ trong phiếu học tập)
-     - **Phương pháp & Công cụ đánh giá:** Tiêu chí đánh giá, rubric chấm điểm (nếu có).
+   - Hãy thiết kế một kế hoạch bài dạy hoàn chỉnh, chi tiết, chất lượng cao, định dạng Markdown rõ ràng, trang trọng, bám sát cấu trúc chuẩn 5512 sau:
 
-3. ĐẶC BIỆT CHÚ TRỌNG:
-   - Các hoạt động phải thực chiến, sinh động, không dùng văn mẫu chung chung.
-   - Thể hiện rõ nét phương pháp dạy học tích cực (dạy học theo trạm, khăn trải bàn, dự án, trò chơi học tập, tích hợp CNTT).
+# TÊN BÀI DẠY: [Ghi rõ Tên bài học - Môn học - Khối lớp - Thời lượng dự kiến]
+
+## I. MỤC TIÊU BÀI HỌC
+- **1. Về kiến thức:** Nêu rõ các yêu cầu cần đạt theo Chương trình GDPT 2018 (sử dụng động từ hành vi Bloom đo lường được: nhận biết, tính toán, phân tích, giải thích...).
+- **2. Về năng lực:**
+  + *Năng lực chung:* 
+    - Tự chủ và tự học: (Mô tả biểu hiện cụ thể trong bài).
+    - Giao tiếp và hợp tác: (Mô tả hoạt động nhóm, thảo luận).
+    - Giải quyết vấn đề và sáng tạo: (Mô tả cách xử lý tình huống).
+  + *Năng lực đặc thù:* (Các thành phần năng lực chuyên biệt của môn học, ví dụ: Năng lực toán học, Năng lực ngôn ngữ, Năng lực tìm hiểu tự nhiên...).
+- **3. Về phẩm chất:** (Nêu rõ biểu hiện cụ thể của 5 phẩm chất: Yêu nước, Nhân ái, Chăm chỉ, Trung thực, Trách nhiệm gắn liền với bài học).
+
+## II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU
+- **1. Giáo viên:** Giáo án, máy chiếu, bài giảng số, phiếu học tập (thiết kế cụ thể), mô hình mô phỏng, phần mềm dạy học (theo khung TPACK).
+- **2. Học sinh:** SGK, vở ghi, đồ dùng học tập, sản phẩm chuẩn bị trước.
+
+## III. TIẾN TRÌNH DẠY HỌC
+(Gồm đủ 4 hoạt động học theo Công văn 5512. Mỗi hoạt động PHẢI có đủ 4 yếu tố: Mục tiêu, Nội dung, Sản phẩm, và 4 bước Tổ chức thực hiện):
+
+### 1. Hoạt động 1: Xác định vấn đề / Khởi động (Mở đầu) [Thời lượng: ... phút]
+- **Mục tiêu:** Tạo tâm thế hứng thú, kết nối kiến thức đã biết với kiến thức mới.
+- **Nội dung:** (Trò chơi, video clip, tình huống mâu thuẫn nhận thức thực tiễn...).
+- **Sản phẩm:** (Câu trả lời, kết quả trò chơi hoặc câu hỏi phát sinh của học sinh).
+- **Tổ chức thực hiện (Chuẩn 4 bước 5512):**
+  + *Bước 1: Chuyển giao nhiệm vụ:* GV giao nhiệm vụ rõ ràng...
+  + *Bước 2: Thực hiện nhiệm vụ:* HS làm việc cá nhân / nhóm...
+  + *Bước 3: Báo cáo, thảo luận:* HS đại diện phát biểu, các nhóm nhận xét...
+  + *Bước 4: Kết luận, nhận định:* GV chốt kiến thức, đặt vấn đề vào bài mới...
+
+### 2. Hoạt động 2: Hình thành kiến thức mới (Khám phá) [Thời lượng: ... phút]
+(Áp dụng phương pháp ${selectedPedagogy.method} và kỹ thuật ${selectedPedagogy.technique}, trình bày chi tiết đủ 4 bước như trên).
+
+### 3. Hoạt động 3: Luyện tập [Thời lượng: ... phút]
+(Hệ thống câu hỏi, bài tập có tính phân hóa mức độ, đủ 4 bước tổ chức thực hiện).
+
+### 4. Hoạt động 4: Vận dụng [Thời lượng: ... phút]
+(Nhiệm vụ thực tiễn gắn với đời sống học sinh, định hướng học tập suốt đời).
+
+## IV. HỒ SƠ DẠY HỌC & ĐÁNH GIÁ
+- **1. Phiếu học tập:** (Trình bày chi tiết nội dung các câu hỏi/bài tập có hướng dẫn đáp án ngắn).
+- **2. Công cụ đánh giá theo năng lực:** (Bảng kiểm Checklist hoặc Rubric đánh giá kết quả thực hiện của học sinh theo Thông tư 22/2021).
+
+## V. CĂN CỨ KHOA HỌC & ĐỐI CHIẾU CHUẨN CÔNG VĂN 5512
+- Bản thiết kế đối chiếu chính xác với các tiêu chuẩn của Công văn 5512/BGDĐT-GDTrH và Thông tư 32/2018/TT-BGDĐT:
+  + Cấu trúc 3 phần và 4 bước tổ chức hoạt động: ĐẠT CHUẨN.
+  + Phát triển phẩm chất và năng lực theo CT GDPT 2018: ĐẠT CHUẨN.
+  + Ứng dụng mô hình TPACK trong phương pháp và học liệu: ĐẠT CHUẨN.
+
 ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI CŨ: ${existingDocContent}` : ''}`;
 
       const res = await fetch(
@@ -1234,8 +2209,8 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => null);
-        const detail = errorData?.error?.message || `Lỗi HTTP ${res.status}`;
-        throw new Error(`Lỗi kết nối AI: ${detail}`);
+        const detail = errorData?.error?.message || ('Lỗi HTTP ' + res.status);
+        throw new Error('Lỗi kết nối AI: ' + detail);
       }
 
       const data = await res.json();
@@ -1261,81 +2236,56 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
 
       for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
-        const trimmed = line.trim();
 
-        if (!trimmed) {
-          if (inList) {
-            html += `</${listType}>\n`;
-            inList = false;
-          }
-          continue;
-        }
-
-        // Tiêu đề
-        if (trimmed.startsWith('# ')) {
-          if (inList) { html += `</${listType}>\n`; inList = false; }
-          html += `<h1>${formatInline(trimmed.replace(/^#\s+/, ''))}</h1>\n`;
-          continue;
-        }
-        if (trimmed.startsWith('## ')) {
-          if (inList) { html += `</${listType}>\n`; inList = false; }
-          html += `<h2>${formatInline(trimmed.replace(/^##\s+/, ''))}</h2>\n`;
-          continue;
-        }
-        if (trimmed.startsWith('### ')) {
-          if (inList) { html += `</${listType}>\n`; inList = false; }
-          html += `<h3>${formatInline(trimmed.replace(/^###\s+/, ''))}</h3>\n`;
-          continue;
-        }
-        if (trimmed.startsWith('#### ')) {
-          if (inList) { html += `</${listType}>\n`; inList = false; }
-          html += `<h4>${formatInline(trimmed.replace(/^####\s+/, ''))}</h4>\n`;
-          continue;
-        }
-
-        // Trích dẫn blockquote
-        if (trimmed.startsWith('> ')) {
-          if (inList) { html += `</${listType}>\n`; inList = false; }
-          html += `<blockquote>${formatInline(trimmed.replace(/^>\s+/, ''))}</blockquote>\n`;
-          continue;
-        }
-
-        // Danh sách gạch đầu dòng
-        if (/^[-*•+]\s+/.test(trimmed)) {
+        if (line.startsWith('# ')) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          html += '<h1>' + formatInline(line.substring(2)) + '</h1>';
+        } else if (line.startsWith('## ')) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          html += '<h2>' + formatInline(line.substring(3)) + '</h2>';
+        } else if (line.startsWith('### ')) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          html += '<h3>' + formatInline(line.substring(4)) + '</h3>';
+        } else if (line.startsWith('#### ')) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          html += '<h4>' + formatInline(line.substring(5)) + '</h4>';
+        } else if (line.startsWith('> ')) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          html += '<blockquote>' + formatInline(line.substring(2)) + '</blockquote>';
+        } else if (line.trim().startsWith('- ') || line.trim().startsWith('* ') || line.trim().startsWith('+ ')) {
           if (!inList || listType !== 'ul') {
-            if (inList) html += `</${listType}>\n`;
-            html += `<ul>\n`;
+            if (inList) html += (listType === 'ul' ? '</ul>' : '</ol>');
+            html += '<ul>';
             inList = true;
             listType = 'ul';
           }
-          const itemText = trimmed.replace(/^[-*•+]\s+/, '');
-          html += `  <li>${formatInline(itemText)}</li>\n`;
-          continue;
-        }
-
-        // Danh sách số
-        if (/^\d+\.\s+/.test(trimmed)) {
+          const content = line.trim().substring(2);
+          html += '<li>' + formatInline(content) + '</li>';
+        } else if (/^\s*\d+\.\s+/.test(line)) {
           if (!inList || listType !== 'ol') {
-            if (inList) html += `</${listType}>\n`;
-            html += `<ol>\n`;
+            if (inList) html += (listType === 'ul' ? '</ul>' : '</ol>');
+            html += '<ol>';
             inList = true;
             listType = 'ol';
           }
-          const itemText = trimmed.replace(/^\d+\.\s+/, '');
-          html += `  <li>${formatInline(itemText)}</li>\n`;
-          continue;
+          const content = line.replace(/^\s*\d+\.\s+/, '');
+          html += '<li>' + formatInline(content) + '</li>';
+        } else if (line.trim() === '') {
+          if (inList) {
+            html += (listType === 'ul' ? '</ul>' : '</ol>');
+            inList = false;
+          }
+        } else {
+          if (inList) {
+            html += (listType === 'ul' ? '</ul>' : '</ol>');
+            inList = false;
+          }
+          html += '<p>' + formatInline(line) + '</p>';
         }
-
-        // Đoạn văn
-        if (inList) {
-          html += `</${listType}>\n`;
-          inList = false;
-        }
-        html += `<p>${formatInline(trimmed)}</p>\n`;
       }
 
       if (inList) {
-        html += `</${listType}>\n`;
+        html += (listType === 'ul' ? '</ul>' : '</ol>');
       }
 
       return html;
@@ -1377,11 +2327,12 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
         document.getElementById('resultToolbar').style.display = 'none';
         document.getElementById('resultDisclaimer').style.display = 'none';
         document.getElementById('stateLoading').style.display = 'flex';
+        mascotSay('Bé Sách đang lật mở các trang sách tri thức và kết nối AI... Chờ mình một tẹo nhé! ⏳');
       } else {
         createSpinner.classList.remove('spin-animation');
-        createBtnText.textContent = 'Tạo kế hoạch bài dạy';
+        createBtnText.textContent = 'Thiết kế kế hoạch bài dạy chuẩn 5512';
         upgradeSpinner.classList.remove('spin-animation');
-        upgradeBtnText.textContent = 'Nâng cấp bài dạy';
+        upgradeBtnText.textContent = 'Nâng cấp bài dạy chuẩn Công văn 5512';
         document.getElementById('stateLoading').style.display = 'none';
       }
     }
@@ -1394,25 +2345,28 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
       canvas.innerHTML = html;
       canvas.style.display = 'block';
 
-      document.getElementById('statePlaceholder').style.display = 'none';
       document.getElementById('stateLoading').style.display = 'none';
+      document.getElementById('statePlaceholder').style.display = 'none';
       document.getElementById('stateError').style.display = 'none';
       document.getElementById('resultToolbar').style.display = 'flex';
       document.getElementById('resultDisclaimer').style.display = 'block';
 
-      document.getElementById('resultToolbar').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      canvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      mascotSay('Tada! Kế hoạch bài dạy chuẩn Công văn 5512 đã hoàn thành! Bạn có thể chỉnh sửa trực tiếp hoặc xuất ra Word nhé! 🎉');
     }
 
     function displayError(errMessage) {
-      document.getElementById('statePlaceholder').style.display = 'none';
       document.getElementById('stateLoading').style.display = 'none';
+      document.getElementById('statePlaceholder').style.display = 'none';
       document.getElementById('documentCanvas').style.display = 'none';
       document.getElementById('resultToolbar').style.display = 'none';
       document.getElementById('resultDisclaimer').style.display = 'none';
 
       const stateError = document.getElementById('stateError');
-      document.getElementById('errorMessage').textContent = errMessage;
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.textContent = errMessage;
       stateError.style.display = 'flex';
+      mascotSay('Ôi không! Đã có lỗi xảy ra: ' + errMessage + '. Bạn bấm nút "Thử lại" giúp mình nhé!');
     }
 
     // Nút 1: Tạo bài dạy mới
@@ -1421,7 +2375,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
       let targetPrompt = promptInput.value.trim();
 
       if (!targetPrompt) {
-        targetPrompt = 'Soạn bài dạy Hàm số bậc hai lớp 10, chú trọng hoạt động thực tế vui nhộn';
+        targetPrompt = 'Thiết kế kế hoạch bài dạy môn Toán lớp 10, chủ đề Hàm số bậc hai theo Công văn 5512';
         promptInput.value = targetPrompt;
       }
 
@@ -1432,8 +2386,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
         const result = await callGeminiAI(targetPrompt, false);
         displayResult(result);
       } catch (err) {
-        console.error(err);
-        displayError(err.message || 'Lỗi kết nối AI');
+        displayError(err.message || 'Không thể kết nối AI Gemini. Vui lòng kiểm tra lại mạng.');
       } finally {
         setGeneratingUI(false);
       }
@@ -1442,18 +2395,22 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
     // Nút 2: Nâng cấp bài dạy cũ
     async function handleGenerateUpgrade() {
       const upgradeNotes = document.getElementById('upgradeNotes').value.trim();
-      const fileName = uploadedFileData ? uploadedFileData.name : 'Giáo án cũ';
-      const prompt = `${fileName}. Yêu cầu cải tiến: ${upgradeNotes || 'Tối ưu hóa các hoạt động, tăng tính tương tác phát triển năng lực'}`;
+      let promptText = upgradeNotes || 'Rà soát và chuẩn hóa giáo án theo Công văn 5512 và CT GDPT 2018';
 
-      currentPrompt = prompt;
+      let fileContent = '';
+      if (uploadedFileData) {
+        fileContent = uploadedFileData.content;
+        promptText = '[TỆP GIÁO ÁN: ' + uploadedFileData.name + '] ' + promptText;
+      }
+
+      currentPrompt = promptText;
       setGeneratingUI(true);
 
       try {
-        const result = await callGeminiAI(prompt, true, uploadedFileData ? uploadedFileData.content : '');
+        const result = await callGeminiAI(promptText, true, fileContent);
         displayResult(result);
       } catch (err) {
-        console.error(err);
-        displayError(err.message || 'Lỗi kết nối AI');
+        displayError(err.message || 'Lỗi khi nâng cấp giáo án.');
       } finally {
         setGeneratingUI(false);
       }
@@ -1462,15 +2419,12 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
     // Nút 3: Tạo phương án khác
     async function handleRegenerate() {
       if (!currentPrompt) return;
-      const variationPrompt = `${currentPrompt} (Tạo thêm một phương án thiết kế bài giảng mới, tiếp cận sáng tạo và độc đáo hơn)`;
-
       setGeneratingUI(true);
       try {
-        const result = await callGeminiAI(variationPrompt, false);
+        const result = await callGeminiAI(currentPrompt + ' (Đưa ra phương án tổ chức hoạt động khác, sáng tạo hơn)');
         displayResult(result);
       } catch (err) {
-        console.error(err);
-        displayError(err.message || 'Lỗi kết nối AI');
+        displayError(err.message || 'Không thể tạo phương án mới.');
       } finally {
         setGeneratingUI(false);
       }
@@ -1489,6 +2443,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
         const copyBtnText = document.getElementById('copyBtnText');
         const oldText = copyBtnText.textContent;
         copyBtnText.textContent = 'Đã sao chép!';
+        mascotSay('Đã sao chép nội dung kế hoạch bài dạy vào khay nhớ tạm!');
         setTimeout(() => {
           copyBtnText.textContent = oldText;
         }, 2000);
@@ -1505,7 +2460,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
 <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
 <head>
 <meta charset='utf-8'>
-<title>Kế hoạch bài dạy 5512</title>
+<title>Kế hoạch bài dạy 5512 - Trường ĐHSP TP.HCM</title>
 <style>
   body {
     font-family: 'Times New Roman', serif;
@@ -1513,8 +2468,20 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
     line-height: 1.35;
     color: #000000;
   }
-  h1 { font-size: 18pt; font-weight: bold; text-align: center; color: #1e3a8a; margin-top: 10pt; margin-bottom: 20pt; }
-  h2 { font-size: 14pt; font-weight: bold; color: #1e3a8a; margin-top: 16pt; margin-bottom: 8pt; }
+  .hcmue-header {
+    text-align: center;
+    margin-bottom: 20pt;
+    border-bottom: 1pt solid #004b91;
+    padding-bottom: 8pt;
+  }
+  .hcmue-sub {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #004b91;
+    text-transform: uppercase;
+  }
+  h1 { font-size: 18pt; font-weight: bold; text-align: center; color: #004b91; margin-top: 10pt; margin-bottom: 16pt; }
+  h2 { font-size: 14pt; font-weight: bold; color: #004b91; margin-top: 16pt; margin-bottom: 8pt; }
   h3 { font-size: 13pt; font-weight: bold; margin-top: 12pt; margin-bottom: 6pt; }
   h4 { font-size: 13pt; font-style: italic; margin-top: 8pt; margin-bottom: 4pt; }
   p { margin-bottom: 8pt; text-align: justify; }
@@ -1522,10 +2489,14 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
   li { margin-bottom: 4pt; }
   strong { font-weight: bold; color: #000000; }
   em { font-style: italic; }
-  blockquote { border-left: 3pt solid #2563eb; padding-left: 10pt; font-style: italic; margin: 10pt 0; color: #1e40af; }
+  blockquote { border-left: 3pt solid #004b91; padding-left: 10pt; font-style: italic; margin: 10pt 0; color: #004b91; background-color: #f0f7ff; }
 </style>
 </head>
 <body>
+  <div class="hcmue-header">
+    <div class="hcmue-sub">TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</div>
+    <div style="font-size: 10.5pt; font-style: italic;">Hệ thống Hỗ trợ Thiết kế Kế hoạch bài dạy chuẩn Công văn 5512/BGDĐT-GDTrH</div>
+  </div>
   ${contentHtml}
 </body>
 </html>`;
@@ -1534,11 +2505,12 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'Ke_hoach_bai_day_5512.doc';
+      a.download = 'Ke_hoach_bai_day_5512_HCMUE.doc';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+      mascotSay('Đã xuất file Word (.doc) hoàn tất! Bạn mở file trong Microsoft Word để xem và chỉnh sửa nhé!');
     }
   </script>
 </body>
