@@ -6,6 +6,10 @@
   <title>SưPhạm AI - Nền tảng thiết kế kế hoạch bài dạy chuẩn Bộ GD&ĐT | HCMUE</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23004b91'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/></svg>">
   
+  <!-- KaTeX: Hiển thị công thức Toán học, Vật lí, Hóa học và ký hiệu khoa học chuẩn quốc tế -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  
   <style>
     /* ==========================================================================
        HỆ THỐNG MÀU SẮC & GIAO DIỆN (HCMUE IDENTITY & SOFT ACADEMIC PALETTE)
@@ -169,8 +173,8 @@
     }
 
     .hcmue-logo-wrapper {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       flex-shrink: 0;
       border-radius: var(--radius-md);
       display: flex;
@@ -178,13 +182,21 @@
       justify-content: center;
       background: #ffffff;
       padding: 2px;
-      box-shadow: 0 3px 10px rgba(0, 75, 145, 0.12);
+      box-shadow: 0 2px 8px rgba(0, 75, 145, 0.12);
       border: 1px solid rgba(0, 75, 145, 0.15);
       transition: transform 0.2s ease;
+      overflow: hidden;
     }
 
     .hcmue-logo-wrapper:hover {
       transform: scale(1.05);
+    }
+
+    .hcmue-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-text-group {
@@ -359,136 +371,29 @@
     }
 
     /* ==========================================================================
-       HERO BANNER & CĂN CỨ KHOA HỌC SƯ PHẠM
+       TIÊU ĐỀ TRANG TỐI GIẢN & TRỰC QUAN (TẬP TRUNG VÀO TRẢI NGHIỆM NGƯỜI DÙNG)
        ========================================================================== */
-    .hero-card {
-      background: linear-gradient(135deg, rgba(0, 75, 145, 0.05) 0%, rgba(245, 158, 11, 0.04) 100%), var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-2xl);
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .page-header-simple {
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 6px 12px;
     }
 
-    [data-theme="dark"] .hero-card {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(251, 191, 36, 0.04) 100%), var(--bg-card);
-    }
-
-    .hero-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: rgba(0, 75, 145, 0.25);
-    }
-
-    .hero-content {
-      flex: 1;
-      max-width: 640px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      background: var(--blue-soft);
-      color: #004b91;
-      border-radius: 9999px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 10px;
-      border: 1px solid rgba(0, 75, 145, 0.15);
-    }
-
-    [data-theme="dark"] .hero-badge {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
-    .hero-title {
-      font-size: 22px;
+    .page-title-simple {
+      font-size: 24px;
       font-weight: 800;
       color: var(--text-main);
-      line-height: 1.3;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
+      margin-bottom: 0;
     }
 
-    .hero-desc {
+    .page-subtitle-simple {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    /* 4 Thẻ Trụ Cột Khoa Học Pháp Lý */
-    .legal-pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-    }
-
-    .pillar-pill {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 8px 12px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      transition: all 0.2s ease;
-      text-align: left;
-    }
-
-    .pillar-pill:hover {
-      border-color: #004b91;
-      background: var(--blue-soft);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 75, 145, 0.08);
-    }
-
-    [data-theme="dark"] .pillar-pill:hover {
-      border-color: #38bdf8;
-      background: rgba(56, 189, 248, 0.12);
-    }
-
-    .pillar-code {
-      font-size: 12px;
-      font-weight: 800;
-      color: #004b91;
-    }
-
-    [data-theme="dark"] .pillar-code {
-      color: #38bdf8;
-    }
-
-    .pillar-desc {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.3;
-    }
-
-    .hero-art {
-      width: 170px;
-      height: 140px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (max-width: 680px) {
-      .hero-card { flex-direction: column; padding: 20px; text-align: left; }
-      .hero-art { display: none; }
-      .legal-pillars-grid { grid-template-columns: 1fr 1fr; }
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
     /* ==========================================================================
@@ -664,6 +569,33 @@
     [data-theme="dark"] .textarea-wrapper textarea:focus,
     [data-theme="dark"] .upgrade-notes-wrapper textarea:focus {
       box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .input-warning {
+      border-color: #e11d48 !important;
+      box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.18) !important;
+      animation: shakeInput 0.3s ease-in-out;
+    }
+
+    @keyframes shakeInput {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+    }
+
+    .input-warning-msg {
+      color: #e11d48;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      animation: fadeIn 0.2s ease;
+    }
+
+    [data-theme="dark"] .input-warning-msg {
+      color: #fb7185;
     }
 
     .input-label {
@@ -1057,6 +989,75 @@
       font-style: italic;
     }
 
+    /* Bảng biểu trong tài liệu giáo án */
+    .notion-document .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: var(--radius-md);
+    }
+
+    .notion-document table.doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border-color);
+      font-size: 14.5px;
+      line-height: 1.6;
+      background: var(--bg-card);
+    }
+
+    .notion-document table.doc-table th,
+    .notion-document table.doc-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .notion-document table.doc-table th {
+      background: var(--bg-hover);
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .notion-document table.doc-table tr:nth-child(even) td {
+      background: rgba(0, 75, 145, 0.02);
+    }
+
+    /* Công thức Toán & Ký hiệu Khoa học */
+    .math-expr {
+      font-family: 'Cambria Math', 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 1.05em;
+      padding: 0 2px;
+      color: var(--text-main);
+      display: inline-block;
+    }
+
+    .math-expr sup, .math-expr sub {
+      font-size: 0.75em;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+
+    .math-expr sup { top: -0.45em; }
+    .math-expr sub { bottom: -0.2em; }
+
+    /* KaTeX Typography Override */
+    .katex {
+      font-size: 1.08em;
+      text-rendering: auto;
+    }
+
+    .katex-display {
+      margin: 16px 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 8px 0;
+      text-align: center;
+    }
+
     .disclaimer {
       text-align: center;
       font-size: 13px;
@@ -1298,13 +1299,13 @@
     }
 
     .modal-body {
-      padding: 24px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
       font-size: 14px;
       color: var(--text-sub);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     .doc-item {
@@ -1314,24 +1315,157 @@
       padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .doc-item:hover {
+      border-color: rgba(0, 75, 145, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 75, 145, 0.06);
+    }
+
+    .doc-item-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .doc-item-title {
       font-size: 15px;
       font-weight: 800;
       color: #004b91;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     [data-theme="dark"] .doc-item-title { color: #38bdf8; }
+
+    .doc-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: var(--blue-soft);
+      color: #004b91;
+      border: 1px solid rgba(0, 75, 145, 0.2);
+      white-space: nowrap;
+    }
+
+    [data-theme="dark"] .doc-badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+    }
 
     .doc-item-quote {
       font-size: 13px;
       color: var(--text-muted);
       border-left: 3px solid #004b91;
       padding-left: 10px;
-      margin-top: 4px;
+      margin: 4px 0;
       font-style: italic;
+    }
+
+    .doc-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-pdf-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #004b91;
+      color: #ffffff !important;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-pdf-view:hover {
+      background: #003666;
+      transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .btn-pdf-view {
+      background: #0284c7;
+    }
+
+    [data-theme="dark"] .btn-pdf-view:hover {
+      background: #0369a1;
+    }
+
+    .btn-pdf-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--bg-card);
+      color: var(--text-main) !important;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-pdf-download:hover {
+      background: var(--bg-hover);
+      border-color: #004b91;
+      color: #004b91 !important;
+    }
+
+    [data-theme="dark"] .btn-pdf-download:hover {
+      color: #38bdf8 !important;
+      border-color: #38bdf8;
+    }
+
+    /* Modal Trình xem PDF nhúng */
+    .pdf-modal-box {
+      max-width: 1000px;
+      width: 95vw;
+      height: 90vh;
+      max-height: 90vh;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pdf-modal-box .modal-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border-color);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pdf-frame-wrapper {
+      flex: 1;
+      width: 100%;
+      height: calc(100% - 60px);
+      background: #525659;
+    }
+
+    .pdf-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
     }
 
     /* Footer */
@@ -1359,40 +1493,23 @@
       
       <!-- Brand & University Logo -->
       <div class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <!-- Logo Vector Trường Đại học Sư phạm TP.HCM (HCMUE) -->
+        <!-- Logo chính thức Trường Đại học Sư phạm TP.HCM (HCMUE) -->
         <div class="hcmue-logo-wrapper" title="Trường Đại học Sư phạm TP. Hồ Chí Minh">
-          <svg viewBox="0 0 100 100" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-            <!-- Vòng tròn nền xanh sư phạm -->
-            <circle cx="50" cy="50" r="48" fill="#004b91" stroke="#f59e0b" stroke-width="2.5"/>
-            <!-- Vòng tròn hào quang bên trong -->
-            <circle cx="50" cy="50" r="43" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="2,2"/>
-            <!-- Cuốn sách mở tri thức -->
-            <path d="M 22 68 Q 50 63 50 78 Q 50 63 78 68 L 78 48 Q 50 43 50 58 Q 50 43 22 48 Z" fill="#ffffff" stroke="#003566" stroke-width="1.2"/>
-            <!-- Búp sen cách điệu 5 cánh vươn cao -->
-            <path d="M 50 20 C 44 32 44 48 50 54 C 56 48 56 32 50 20 Z" fill="#f59e0b"/>
-            <path d="M 50 24 C 40 32 34 44 42 54 C 46 48 48 38 50 24 Z" fill="#ffffff" opacity="0.9"/>
-            <path d="M 50 24 C 60 32 66 44 58 54 C 54 48 52 38 50 24 Z" fill="#ffffff" opacity="0.9"/>
-            <path d="M 50 30 C 34 38 28 50 36 60 C 42 54 46 44 50 30 Z" fill="#ffd166"/>
-            <path d="M 50 30 C 66 38 72 50 64 60 C 58 54 54 44 50 30 Z" fill="#ffd166"/>
-            <!-- Ngọn đuốc / Ngôi sao tri thức -->
-            <circle cx="50" cy="18" r="3.5" fill="#e11d48"/>
-            <path d="M 50 13 L 51.5 17 L 55 17 L 52 19 L 53 23 L 50 20 L 47 23 L 48 19 L 45 17 L 48.5 17 Z" fill="#f59e0b"/>
-          </svg>
+          <img src="assets/logo-hcmue.webp" alt="Logo Trường Đại học Sư phạm TP. Hồ Chí Minh" class="hcmue-logo-img">
         </div>
 
         <div class="brand-text-group">
           <span class="brand-top-sub">Trường Đại học Sư phạm TP. Hồ Chí Minh</span>
           <div class="brand-title-wrap">
             <span class="brand-title">SưPhạm <span>AI</span></span>
-            <span class="brand-badge-tag">Đề tài NCKH</span>
           </div>
         </div>
       </div>
 
       <!-- Action Buttons & Tools -->
       <div class="header-right">
-        <!-- Nút Tra cứu Cơ sở Pháp lý Bộ GD&ĐT -->
-        <button type="button" class="header-btn header-btn-scientific" onclick="openLegalModal()" title="Xem cơ sở pháp lý và công văn chuẩn Bộ GD&ĐT">
+        <!-- Nút Tra cứu Cơ sở Pháp lý & PDF Bộ GD&ĐT -->
+        <button type="button" class="header-btn header-btn-scientific" onclick="openLegalModal()" title="Xem căn cứ pháp lý & đối chiếu công văn PDF chuẩn Bộ GD&ĐT">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
             <polyline points="14 2 14 8 20 8"/>
@@ -1400,7 +1517,7 @@
             <line x1="16" y1="17" x2="8" y2="17"/>
             <polyline points="10 9 9 9 8 9"/>
           </svg>
-          <span>Chuẩn 5512 & Pháp lý</span>
+          <span>Công văn chuẩn Bộ GD&ĐT</span>
         </button>
 
         <!-- Nút Đổi Theme Sáng / Tối -->
@@ -1429,70 +1546,10 @@
        ========================================================================== -->
   <main class="main-container">
 
-    <!-- HERO BANNER: GIỚI THIỆU TÍNH KHOA HỌC & 4 TRỤ CỘT BỘ GD&ĐT -->
-    <section class="hero-card">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="m9 12 2 2 4-4"/>
-          </svg>
-          Cơ sở khoa học & chuẩn mực sư phạm
-        </div>
-        <h1 class="hero-title">Thiết kế Kế hoạch bài dạy chuẩn Chương trình GDPT 2018</h1>
-        <p class="hero-desc">
-          Hệ thống được phát triển theo định hướng nghiên cứu khoa học của <strong>Trường ĐH Sư phạm TP.HCM</strong>, tích hợp chặt chẽ khung lý thuyết sư phạm <strong>TPACK</strong> và các văn bản chỉ đạo chính thức của <strong>Bộ Giáo dục và Đào tạo</strong>.
-        </p>
-
-        <!-- 4 Trụ cột Khoa học & Pháp lý -->
-        <div class="legal-pillars-grid">
-          <div class="pillar-pill" onclick="openLegalModal('5512')" title="Bấm để xem chi tiết Công văn 5512">
-            <span class="pillar-code">CV 5512/BGDĐT</span>
-            <span class="pillar-desc">Khung KHBD 3 phần, 4 bước tổ chức hoạt động</span>
-          </div>
-          <div class="pillar-pill" onclick="openLegalModal('32')" title="Bấm để xem Chương trình GDPT 2018">
-            <span class="pillar-code">TT 32/2018</span>
-            <span class="pillar-desc">Phát triển 5 phẩm chất, 3 năng lực chung & đặc thù</span>
-          </div>
-          <div class="pillar-pill" onclick="openLegalModal('20')" title="Bấm để xem Chuẩn nghề nghiệp GV">
-            <span class="pillar-code">TT 20/2018</span>
-            <span class="pillar-desc">Chuẩn nghề nghiệp GV: Năng lực lập KH dạy học</span>
-          </div>
-          <div class="pillar-pill" onclick="openLegalModal('tpack')" title="Bấm để xem Khung TPACK & Đánh giá">
-            <span class="pillar-code">Khung TPACK</span>
-            <span class="pillar-desc">Tích hợp Công nghệ - Sư phạm - Đánh giá rubric</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Họa tiết minh họa sinh viên / tri thức sư phạm -->
-      <div class="hero-art">
-        <svg viewBox="0 0 200 160" width="160" height="130" xmlns="http://www.w3.org/2000/svg">
-          <!-- Cuốn sách mở lớn lơ lửng -->
-          <path d="M 30 110 Q 100 95 100 130 Q 100 95 170 110 L 170 60 Q 100 45 100 80 Q 100 45 30 60 Z" fill="#eff6ff" stroke="#004b91" stroke-width="2"/>
-          <path d="M 38 102 Q 100 88 100 120 Q 100 88 162 102 L 162 55 Q 100 42 100 73 Q 100 42 38 55 Z" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
-          <!-- Đường gáy sách -->
-          <line x1="100" y1="73" x2="100" y2="128" stroke="#004b91" stroke-width="2"/>
-          <!-- Cây tri thức mọc từ sách -->
-          <path d="M 100 75 Q 98 45 100 25" stroke="#004b91" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <circle cx="100" cy="22" r="14" fill="#f59e0b" opacity="0.9"/>
-          <!-- Các nhánh lá tri thức -->
-          <ellipse cx="85" cy="35" rx="10" ry="6" fill="#38bdf8" transform="rotate(-30 85 35)"/>
-          <ellipse cx="115" cy="35" rx="10" ry="6" fill="#38bdf8" transform="rotate(30 115 35)"/>
-          <ellipse cx="78" cy="50" rx="9" ry="5" fill="#10b981" transform="rotate(-20 78 50)"/>
-          <ellipse cx="122" cy="50" rx="9" ry="5" fill="#10b981" transform="rotate(20 122 50)"/>
-          <!-- Mũ tốt nghiệp cử nhân sư phạm -->
-          <polygon points="100,10 115,16 100,22 85,16" fill="#002d59"/>
-          <path d="M 88 18 L 88 24 Q 100 28 112 24 L 112 18" fill="#004b91"/>
-          <line x1="115" y1="16" x2="118" y2="25" stroke="#f59e0b" stroke-width="1.5"/>
-          <circle cx="118" cy="26" r="1.5" fill="#f59e0b"/>
-          <!-- Hạt sáng tri thức lấp lánh -->
-          <circle cx="50" cy="30" r="2" fill="#f59e0b"/>
-          <circle cx="150" cy="30" r="2.5" fill="#004b91"/>
-          <circle cx="140" cy="15" r="1.5" fill="#38bdf8"/>
-        </svg>
-      </div>
-    </section>
+    <!-- TIÊU ĐỀ TRANG TỐI GIẢN & TRỰC QUAN -->
+    <div class="page-header-simple">
+      <h1 class="page-title-simple">Thiết kế Kế hoạch bài dạy chuẩn Bộ GD&ĐT</h1>
+    </div>
 
     <!-- 1. KHU VỰC ĐẦU VÀO (INPUT CARD) -->
     <section class="card input-card">
@@ -1561,7 +1618,11 @@
             rows="4" 
             placeholder="Nhập tên bài dạy, môn học và ý tưởng sư phạm của bạn...&#10;Ví dụ: Soạn bài dạy 'Hàm số bậc hai' - Toán 10, liên hệ quỹ đạo bóng rổ, có hoạt động trải nghiệm phần mềm GeoGebra..."
             onfocus="mascotSay('Hãy nhập tên bài học và môn học bạn cần soạn nhé! Mình sẽ giúp bạn đối chiếu chuẩn 5512.')"
+            oninput="clearPromptWarning()"
           ></textarea>
+          <div id="promptWarning" class="input-warning-msg" style="display: none;">
+            ⚠️ Chưa có nội dung để phân tích. Vui lòng nhập tên bài học hoặc chọn ý tưởng gợi ý bên dưới!
+          </div>
         </div>
 
         <!-- Quick Inspiration Pills -->
@@ -1589,7 +1650,7 @@
             <svg id="createSpinner" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
             </svg>
-            <span id="createBtnText">Thiết kế kế hoạch bài dạy chuẩn 5512</span>
+            <span id="createBtnText">Phân tích bài dạy</span>
           </button>
         </div>
       </div>
@@ -1634,7 +1695,11 @@
             rows="3" 
             placeholder="Ví dụ: Bổ sung trò chơi khởi động, thiết kế lại hoạt động khám phá theo phương pháp dạy học theo trạm, thêm rubric đánh giá học sinh..."
             onfocus="mascotSay('Bạn muốn thêm trò chơi, bổ sung câu hỏi phân hóa hay chia lại thời lượng các hoạt động?')"
+            oninput="clearUpgradeWarning()"
           ></textarea>
+          <div id="upgradeWarning" class="input-warning-msg" style="display: none;">
+            ⚠️ Chưa có nội dung để phân tích. Vui lòng tải lên tệp giáo án hoặc nhập yêu cầu nâng cấp!
+          </div>
         </div>
 
         <!-- Upgrade Button -->
@@ -1716,8 +1781,7 @@
               <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
             </svg>
           </div>
-          <h3 class="state-title">AI đang phân tích và thiết kế bài dạy chuẩn 5512...</h3>
-          <p class="state-sub">Đang xây dựng yêu cầu cần đạt, thiết bị học liệu, chuỗi 4 hoạt động học và đối chiếu tiêu chí sư phạm.</p>
+          <h3 class="state-title">Đang phân tích bài dạy...</h3>
         </div>
 
         <!-- State 3: Hiển thị lỗi nếu có -->
@@ -1813,7 +1877,7 @@
   </div>
 
   <!-- ==========================================================================
-       MODAL: TRA CỨU CĂN CỨ PHÁP LÝ & CÔNG VĂN BỘ GIÁO DỤC VÀ ĐÀO TẠO
+       MODAL: TRA CỨU CĂN CỨ PHÁP LÝ & CÔNG VĂN CHUẨN BỘ GIÁO DỤC VÀ ĐÀO TẠO
        ========================================================================== -->
   <div class="modal-backdrop" id="legalModal" onclick="closeLegalModal(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
@@ -1825,7 +1889,7 @@
             <line x1="16" y1="13" x2="8" y2="13"/>
             <line x1="16" y1="17" x2="8" y2="17"/>
           </svg>
-          Hệ thống Căn cứ Khoa học & Pháp lý Sư phạm
+          Hệ thống Công văn & Căn cứ Pháp lý Chuẩn Bộ GD&ĐT
         </div>
         <button type="button" class="modal-close-btn" onclick="closeLegalModal()">✕</button>
       </div>
@@ -1834,46 +1898,149 @@
         
         <!-- 1. Công văn 5512 -->
         <div class="doc-item" id="legal-5512">
-          <div class="doc-item-title">1. Công văn số 5512/BGDĐT-GDTrH (Ngày 18/12/2020)</div>
-          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
-          <p><strong>Nội dung trọng tâm:</strong> Về việc xây dựng và tổ chức thực hiện kế hoạch giáo dục của nhà trường. Đặc biệt <em>Phụ lục 4: Khung kế hoạch bài dạy</em> quy định cấu trúc 3 phần bắt buộc:</p>
-          <ul style="padding-left: 20px; margin: 4px 0;">
-            <li><strong>I. Mục tiêu:</strong> Xác định rõ Kiến thức, Năng lực (chung & đặc thù) và Phẩm chất chủ yếu theo động từ hành vi đo lường được.</li>
-            <li><strong>II. Thiết bị dạy học và học liệu:</strong> Liệt kê thiết bị của GV và HS (học liệu số, phiếu học tập, mô hình).</li>
-            <li><strong>III. Tiến trình dạy học:</strong> Chuỗi 4 hoạt động: (1) Khởi động/Mở đầu; (2) Hình thành kiến thức mới/Khám phá; (3) Luyện tập; (4) Vận dụng.</li>
-          </ul>
+          <div class="doc-item-header">
+            <div class="doc-item-title">1. Công văn số 5512/BGDĐT-GDTrH (18/12/2020)</div>
+            <span class="doc-badge">Khung KHBD Chuẩn</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo (Thứ trưởng Nguyễn Hữu Độ ký ban hành)</p>
+          <p><strong>Nội dung trọng tâm:</strong> Về việc xây dựng và tổ chức thực hiện kế hoạch giáo dục của nhà trường. Đặc biệt <em>Phụ lục 4: Khung kế hoạch bài dạy</em> là khung tham chiếu cốt lõi bắt buộc, gồm 3 phần lớn (Mục tiêu, Thiết bị/Học liệu, Tiến trình dạy học) và chuỗi 4 hoạt động học.</p>
           <div class="doc-item-quote">
             "Mỗi hoạt động học phải được tổ chức thực hiện đầy đủ 4 bước: (1) Chuyển giao nhiệm vụ; (2) Thực hiện nhiệm vụ; (3) Báo cáo, thảo luận; (4) Kết luận, nhận định."
+          </div>
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/cong-van-5512.pdf', 'Công văn số 5512/BGDĐT-GDTrH (18/12/2020)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/cong-van-5512.pdf" download="Cong_van_5512_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
           </div>
         </div>
 
         <!-- 2. Thông tư 32/2018/TT-BGDĐT -->
         <div class="doc-item" id="legal-32">
-          <div class="doc-item-title">2. Thông tư số 32/2018/TT-BGDĐT (Ngày 26/12/2018)</div>
-          <p><strong>Nội dung trọng tâm:</strong> Ban hành Chương trình Giáo dục phổ thông (CT GDPT 2018). Chuyển từ nền giáo dục nặng về truyền thụ kiến thức sang phát triển toàn diện phẩm chất và năng lực người học.</p>
+          <div class="doc-item-header">
+            <div class="doc-item-title">2. Thông tư số 32/2018/TT-BGDĐT (26/12/2018)</div>
+            <span class="doc-badge">Chương trình GDPT 2018</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo (Bộ trưởng Phùng Xuân Nhạ ký ban hành)</p>
+          <p><strong>Nội dung trọng tâm:</strong> Ban hành Chương trình Giáo dục phổ thông (CT GDPT 2018). Đổi mới toàn diện mục tiêu giáo dục theo định hướng phát triển phẩm chất và năng lực:</p>
           <ul style="padding-left: 20px; margin: 4px 0;">
             <li><strong>5 Phẩm chất chủ yếu:</strong> Yêu nước, Nhân ái, Chăm chỉ, Trung thực, Trách nhiệm.</li>
-            <li><strong>3 Năng lực chung:</strong> Tự chủ & tự học, Giao tiếp & hợp tác, Giải quyết vấn đề & sáng tạo.</li>
+            <li><strong>3 Nhóm Năng lực chung:</strong> Tự chủ & tự học, Giao tiếp & hợp tác, Giải quyết vấn đề & sáng tạo.</li>
             <li><strong>Các Năng lực đặc thù:</strong> Ngôn ngữ, Tính toán, Khoa học, Công nghệ, Tin học, Thẩm mỹ, Thể chất.</li>
           </ul>
-        </div>
-
-        <!-- 3. Công văn 2613/BGDĐT & 3175/BGDĐT -->
-        <div class="doc-item">
-          <div class="doc-item-title">3. Công văn 2613/BGDĐT-GDTrH & Công văn 3175/BGDĐT-GDTrH</div>
-          <p><strong>Nội dung trọng tâm:</strong> Hướng dẫn triển khai thực hiện linh hoạt Công văn 5512:</p>
-          <div class="doc-item-quote">
-            "Không áp dụng máy móc, không yêu cầu ghi chép chi tiết lời thoại của giáo viên và học sinh như một kịch bản đóng kịch; chú trọng tính linh hoạt, sáng tạo và phù hợp thực tế đối tượng học sinh."
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/thong-tu-32-2018.pdf', 'Thông tư số 32/2018/TT-BGDĐT (CT GDPT 2018)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/thong-tu-32-2018.pdf" download="Thong_tu_32_2018_TT_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
           </div>
         </div>
 
-        <!-- 4. Khung TPACK & Chuẩn nghề nghiệp GV -->
-        <div class="doc-item" id="legal-tpack">
-          <div class="doc-item-title">4. Khung Lý thuyết TPACK (Mishra & Koehler) & Thông tư 20/2018/TT-BGDĐT</div>
-          <p><strong>Mô hình TPACK (Technological Pedagogical Content Knowledge):</strong> Giao thoa giữa Tri thức Công nghệ (TK), Tri thức Sư phạm (PK) và Tri thức Nội dung (CK) giúp sinh viên sư phạm HCMUE ứng dụng AI và công nghệ số một cách chuẩn mực vào từng bài học.</p>
-          <p><strong>Thông tư 20/2018/TT-BGDĐT:</strong> Chuẩn nghề nghiệp giáo viên cơ sở giáo dục phổ thông - Tiêu chuẩn phát triển chuyên môn, nghiệp vụ.</p>
+        <!-- 3. Công văn 2613/BGDĐT -->
+        <div class="doc-item" id="legal-2613">
+          <div class="doc-item-header">
+            <div class="doc-item-title">3. Công văn số 2613/BGDĐT-GDTrH (23/06/2021)</div>
+            <span class="doc-badge">Áp dụng linh hoạt 5512</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Nội dung trọng tâm:</strong> Triển khai thực hiện linh hoạt Công văn số 5512/BGDĐT-GDTrH trong xây dựng kế hoạch bài dạy:</p>
+          <div class="doc-item-quote">
+            "Không áp dụng máy móc, không yêu cầu ghi chép chi tiết lời thoại của giáo viên và học sinh như một kịch bản đóng kịch; chú trọng tính linh hoạt, sáng tạo và phù hợp thực tế đối tượng học sinh."
+          </div>
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/cong-van-2613.pdf', 'Công văn số 2613/BGDĐT-GDTrH (23/06/2021)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/cong-van-2613.pdf" download="Cong_van_2613_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
+          </div>
         </div>
 
+        <!-- 4. Công văn 3175/BGDĐT -->
+        <div class="doc-item" id="legal-3175">
+          <div class="doc-item-header">
+            <div class="doc-item-title">4. Công văn số 3175/BGDĐT-GDTrH (21/07/2022)</div>
+            <span class="doc-badge">Đổi mới PPDH & Đánh giá</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Nội dung trọng tâm:</strong> Hướng dẫn đổi mới phương pháp dạy học và kiểm tra, đánh giá trong các trường phổ thông. Phát huy tính chủ động, tư duy phản biện của học sinh, tránh ngữ liệu trùng lặp trong SGK khi đánh giá.</p>
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/cong-van-3175.pdf', 'Công văn số 3175/BGDĐT-GDTrH (21/07/2022)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/cong-van-3175.pdf" download="Cong_van_3175_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
+          </div>
+        </div>
+
+        <!-- 5. Thông tư 20/2018/TT-BGDĐT -->
+        <div class="doc-item" id="legal-20">
+          <div class="doc-item-header">
+            <div class="doc-item-title">5. Thông tư số 20/2018/TT-BGDĐT (22/08/2018)</div>
+            <span class="doc-badge">Chuẩn nghề nghiệp GV</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Nội dung trọng tâm:</strong> Ban hành Quy định chuẩn nghề nghiệp giáo viên cơ sở giáo dục phổ thông. Tiêu chuẩn 2 (Phát triển chuyên môn, nghiệp vụ), Tiêu chí 4: Xây dựng kế hoạch dạy học và giáo dục theo hướng phát triển phẩm chất, năng lực học sinh.</p>
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/thong-tu-20-2018.pdf', 'Thông tư số 20/2018/TT-BGDĐT (Chuẩn nghề nghiệp GV)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/thong-tu-20-2018.pdf" download="Thong_tu_20_2018_TT_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
+          </div>
+        </div>
+
+        <!-- 6. Thông tư 22/2021/TT-BGDĐT -->
+        <div class="doc-item" id="legal-22">
+          <div class="doc-item-header">
+            <div class="doc-item-title">6. Thông tư số 22/2021/TT-BGDĐT (05/09/2021)</div>
+            <span class="doc-badge">Đánh giá HS THCS & THPT</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Nội dung trọng tâm:</strong> Quy định về đánh giá học sinh THCS và THPT. Đánh giá thường xuyên thông qua hỏi - đáp, thuyết trình, bài tập, thực hành, sản phẩm học tập và xây dựng bảng rubric đánh giá tiêu chí.</p>
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/thong-tu-22-2021.pdf', 'Thông tư số 22/2021/TT-BGDĐT (Đánh giá HS THCS & THPT)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/thong-tu-22-2021.pdf" download="Thong_tu_22_2021_TT_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
+          </div>
+        </div>
+
+        <!-- 7. Thông tư 27/2020/TT-BGDĐT -->
+        <div class="doc-item" id="legal-27">
+          <div class="doc-item-header">
+            <div class="doc-item-title">7. Thông tư số 27/2020/TT-BGDĐT (04/09/2020)</div>
+            <span class="doc-badge">Đánh giá HS Tiểu học</span>
+          </div>
+          <p><strong>Cơ quan ban hành:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Nội dung trọng tâm:</strong> Quy định về đánh giá học sinh tiểu học. Đánh giá quá trình và vì sự tiến bộ của học sinh; coi trọng việc động viên, khuyến khích sự tự tin và tinh thần sáng tạo.</p>
+          <div class="doc-actions">
+            <button type="button" class="btn-pdf-view" onclick="openPdfViewer('docs/thong-tu-27-2020.pdf', 'Thông tư số 27/2020/TT-BGDĐT (Đánh giá HS Tiểu học)')">👁️ Xem trực tiếp PDF</button>
+            <a href="docs/thong-tu-27-2020.pdf" download="Thong_tu_27_2020_TT_BGDDT.pdf" class="btn-pdf-download">📥 Tải PDF chuẩn</a>
+          </div>
+        </div>
+
+        <!-- 8. Khung TPACK -->
+        <div class="doc-item" id="legal-tpack">
+          <div class="doc-item-header">
+            <div class="doc-item-title">8. Khung Lý thuyết Sư phạm TPACK (Mishra & Koehler)</div>
+            <span class="doc-badge">Khung Lý luận Sư phạm</span>
+          </div>
+          <p><strong>Mô hình TPACK (Technological Pedagogical Content Knowledge):</strong> Giao thoa giữa Tri thức Công nghệ (TK), Tri thức Sư phạm (PK) và Tri thức Nội dung (CK) giúp sinh viên và giảng viên Trường ĐH Sư phạm TP.HCM ứng dụng AI và công nghệ số một cách chuẩn mực, thực chất vào từng bài học.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: TRÌNH XEM TRỰC TIẾP TỆP PDF CÔNG VĂN / THÔNG TƯ
+       ========================================================================== -->
+  <div class="modal-backdrop" id="pdfViewerModal" onclick="closePdfViewer(event)">
+    <div class="modal-box pdf-modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#004b91" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <span id="pdfViewerTitleText" style="font-size: 15px; font-weight: 700;">Văn bản Công văn / Thông tư</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <a id="pdfOpenNewTabBtn" href="#" target="_blank" class="btn-pdf-download" title="Mở văn bản trong tab mới để xem toàn màn hình">Mở tab mới ↗</a>
+          <a id="pdfDownloadBtn" href="#" download class="btn-pdf-view" title="Tải văn bản PDF gốc về máy">Tải về 📥</a>
+          <button type="button" class="modal-close-btn" onclick="closePdfViewer()">✕</button>
+        </div>
+      </div>
+      <div class="pdf-frame-wrapper">
+        <iframe id="pdfViewerFrame" src="" class="pdf-iframe" title="PDF Viewer"></iframe>
       </div>
     </div>
   </div>
@@ -1883,7 +2050,7 @@
     <div style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">
       TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH (HCMUE)
     </div>
-    <div>Sản phẩm Đề tài Nghiên cứu Khoa học Sinh viên • Thiết kế theo chuẩn Công văn 5512/BGDĐT-GDTrH</div>
+    <div>Hệ thống Trợ lý Sư phạm Thiết kế Kế hoạch bài dạy chuẩn Công văn 5512/BGDĐT-GDTrH</div>
   </footer>
 
   <!-- ==========================================================================
@@ -1977,8 +2144,23 @@
     function fillPrompt(text) {
       const promptInput = document.getElementById('promptInput');
       promptInput.value = text;
+      clearPromptWarning();
       promptInput.focus();
-      mascotSay('Ý tưởng bài này rất hay! Nhấn nút "Thiết kế kế hoạch bài dạy" ở dưới để mình tiến hành nhé!');
+      mascotSay('Ý tưởng bài này rất hay! Nhấn nút "Phân tích bài dạy" ở dưới để mình tiến hành nhé!');
+    }
+
+    function clearPromptWarning() {
+      const promptWarning = document.getElementById('promptWarning');
+      const promptInput = document.getElementById('promptInput');
+      if (promptWarning) promptWarning.style.display = 'none';
+      if (promptInput) promptInput.classList.remove('input-warning');
+    }
+
+    function clearUpgradeWarning() {
+      const upgradeWarning = document.getElementById('upgradeWarning');
+      const upgradeNotes = document.getElementById('upgradeNotes');
+      if (upgradeWarning) upgradeWarning.style.display = 'none';
+      if (upgradeNotes) upgradeNotes.classList.remove('input-warning');
     }
 
     // -------------------------------------------------------------
@@ -2023,7 +2205,7 @@
     }
 
     // -------------------------------------------------------------
-    // MODAL TRA CỨU CĂN CỨ PHÁP LÝ
+    // MODAL TRA CỨU CĂN CỨ PHÁP LÝ & CÔNG VĂN CHUẨN BỘ GD&ĐT
     // -------------------------------------------------------------
     function openLegalModal(targetId) {
       const modal = document.getElementById('legalModal');
@@ -2034,12 +2216,42 @@
           if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 100);
       }
-      mascotSay('Đây là hệ thống các văn bản chỉ đạo của Bộ GD&ĐT làm căn cứ khoa học cho hệ thống.');
+      mascotSay('Đây là hệ thống 7 công văn & thông tư chính thức của Bộ GD&ĐT làm căn cứ pháp lý và khoa học cho hệ thống.');
     }
 
     function closeLegalModal(e) {
       if (!e || e.target.id === 'legalModal' || e.target.classList.contains('modal-close-btn')) {
         document.getElementById('legalModal').style.display = 'none';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // TRÌNH XEM TRỰC TIẾP TỆP PDF CÔNG VĂN / THÔNG TƯ
+    // -------------------------------------------------------------
+    function openPdfViewer(pdfUrl, pdfTitle) {
+      const modal = document.getElementById('pdfViewerModal');
+      const frame = document.getElementById('pdfViewerFrame');
+      const titleText = document.getElementById('pdfViewerTitleText');
+      const openTabBtn = document.getElementById('pdfOpenNewTabBtn');
+      const downloadBtn = document.getElementById('pdfDownloadBtn');
+
+      if (titleText) titleText.textContent = pdfTitle;
+      if (frame) frame.src = pdfUrl;
+      if (openTabBtn) openTabBtn.href = pdfUrl;
+      if (downloadBtn) {
+        downloadBtn.href = pdfUrl;
+        downloadBtn.setAttribute('download', pdfUrl.split('/').pop());
+      }
+      if (modal) modal.style.display = 'flex';
+      mascotSay(`Đang mở văn bản gốc: "${pdfTitle}". Bạn có thể xem trực tiếp hoặc tải về đối chiếu nhé! 📑`);
+    }
+
+    function closePdfViewer(e) {
+      if (!e || e.target.id === 'pdfViewerModal' || e.target.classList.contains('modal-close-btn')) {
+        const modal = document.getElementById('pdfViewerModal');
+        const frame = document.getElementById('pdfViewerFrame');
+        if (modal) modal.style.display = 'none';
+        if (frame) frame.src = '';
       }
     }
 
@@ -2186,6 +2398,14 @@ QUY TẮC PHẢN HỒI:
   + Phát triển phẩm chất và năng lực theo CT GDPT 2018: ĐẠT CHUẨN.
   + Ứng dụng mô hình TPACK trong phương pháp và học liệu: ĐẠT CHUẨN.
 
+QUY TẮC BẮT BUỘC VỀ CHÍNH TẢ, CÔNG THỨC & KÝ HIỆU KHOA HỌC:
+- Mọi công thức Toán học, biểu thức đại số, hàm số, phương trình, tọa độ, phân số, căn thức:
+  + PHẢI được bao bọc chuẩn xác trong cặp dấu $...$ (nội dòng, ví dụ: $y = ax^2 + bx + c$, $x_I = -\\frac{b}{2a}$, $y_I = -\\frac{\\Delta}{4a}$, $a > 0$) hoặc $$...$$ (công thức khối riêng).
+  + Hoặc dùng trực tiếp ký tự tiếng Việt / Unicode chuẩn tự nhiên: x², x³, Δ, ≤, ≥, ≠, ±, °, H₂O, CO₂.
+  + TUYỆT ĐỐI KHÔNG để sót ký tự mã lệnh LaTeX thô mà không có dấu $ bao bọc (không viết trần \\frac hay \\Delta).
+- Bảng biểu đánh giá hoặc bảng phân hóa: Sử dụng cú pháp bảng Markdown chuẩn (| Tiêu chí | Mức 1 | Mức 2 |).
+- Văn phong sư phạm chuẩn mực tiếng Việt, dấu câu chuẩn xác, tuyệt đối không sai lỗi chính tả.
+
 ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI CŨ: ${existingDocContent}` : ''}`;
 
       const res = await fetch(
@@ -2224,9 +2444,143 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
     }
 
     // -------------------------------------------------------------
-    // BỘ CHUYỂN ĐỔI MARKDOWN THUẦN SANG HTML
+    // BỘ BIÊN DỊCH CÔNG THỨC TOÁN & KÝ HIỆU KHOA HỌC DỰ PHÒNG
     // -------------------------------------------------------------
-    function parseMarkdownToHTML(md) {
+    function renderMathFallback(tex) {
+      if (!tex) return '';
+      let s = tex.trim();
+
+      // Ký tự Hy Lạp
+      const greek = {
+        '\\Delta': 'Δ', '\\delta': 'δ', '\\alpha': 'α', '\\beta': 'β', '\\gamma': 'γ',
+        '\\Gamma': 'Γ', '\\theta': 'θ', '\\lambda': 'λ', '\\Lambda': 'Λ', '\\pi': 'π',
+        '\\Pi': 'Π', '\\sigma': 'σ', '\\Sigma': 'Σ', '\\omega': 'ω', '\\Omega': 'Ω',
+        '\\phi': 'φ', '\\Phi': 'Φ', '\\mu': 'μ', '\\rho': 'ρ', '\\tau': 'τ', '\\eta': 'η'
+      };
+      for (const [k, v] of Object.entries(greek)) {
+        s = s.split(k).join(v);
+      }
+
+      // Ký hiệu toán học & toán tử
+      const symbols = {
+        '\\times': '×', '\\cdot': '·', '\\pm': '±', '\\mp': '∓', '\\div': '÷',
+        '\\leq': '≤', '\\le': '≤', '\\geq': '≥', '\\ge': '≥', '\\neq': '≠', '\\ne': '≠',
+        '\\approx': '≈', '\\equiv': '≡', '\\in': '∈', '\\notin': '∉', '\\subset': '⊂',
+        '\\subseteq': '⊆', '\\cup': '∪', '\\cap': '∩', '\\emptyset': '∅',
+        '\\forall': '∀', '\\exists': '∃', '\\infty': '∞', '\\to': '→',
+        '\\rightarrow': '→', '\\leftarrow': '←', '\\Rightarrow': '⇒', '\\Leftarrow': '⇐',
+        '\\Leftrightarrow': '⇔', '\\circ': '°', '^{\\circ}': '°'
+      };
+      for (const [k, v] of Object.entries(symbols)) {
+        s = s.split(k).join(v);
+      }
+
+      // Phân số: \frac{a}{b} -> a/b hoặc (a)/(b)
+      s = s.replace(/\\frac\s*\{([^}]+)\}\s*\{([^}]+)\}/g, (m, a, b) => {
+        const num = a.trim();
+        const den = b.trim();
+        if (/^[a-zA-Z0-9Δα-ω]+$/.test(num) && /^[a-zA-Z0-9Δα-ω]+$/.test(den)) {
+          return `${num}/${den}`;
+        }
+        return `(${num})/(${den})`;
+      });
+
+      // Căn thức: \sqrt{x}
+      s = s.replace(/\\sqrt\s*\{([^}]+)\}/g, '√($1)');
+      s = s.replace(/\\sqrt\s*\[([^\]]+)\]\s*\{([^}]+)\}/g, '<sup>$1</sup>√($2)');
+
+      // Số mũ & chỉ số dưới
+      s = s.replace(/\^{([^}]+)}/g, '<sup>$1</sup>');
+      s = s.replace(/\^([a-zA-Z0-9+\-]+)/g, '<sup>$1</sup>');
+      s = s.replace(/_{([^}]+)}/g, '<sub>$1</sub>');
+      s = s.replace(/_([a-zA-Z0-9+\-]+)/g, '<sub>$1</sub>');
+
+      // Định dạng chữ & ký hiệu
+      s = s.replace(/\\text\s*\{([^}]+)\}/g, '$1');
+      s = s.replace(/\\mathbf\s*\{([^}]+)\}/g, '<b>$1</b>');
+      s = s.replace(/\\mathit\s*\{([^}]+)\}/g, '<i>$1</i>');
+      s = s.replace(/\\mathrm\s*\{([^}]+)\}/g, '$1');
+
+      // Dọn dẹp khoảng cách & dấu ngoặc
+      s = s.replace(/\\left|\\right/g, '');
+      s = s.replace(/\\[,;!]/g, ' ');
+      s = s.replace(/\\quad|\\qquad/g, '   ');
+      s = s.replace(/\\([\{\}])/g, '$1');
+      s = s.replace(/\\/g, '');
+
+      return `<span class="math-expr">${s}</span>`;
+    }
+
+    // -------------------------------------------------------------
+    // ĐỊNH DẠNG NỘI DÒNG: TOÁN HỌC, MARKDOWN, KÝ TỰ ĐẶC BIỆT
+    // -------------------------------------------------------------
+    function formatInline(text, forWord = false) {
+      if (!text) return '';
+
+      // 1. Bảo vệ các khối công thức Toán $$...$$ và $...$
+      const mathTokens = [];
+      let processed = text.replace(/(\$\$[\s\S]*?\$\$|\$[^\$\n]+?\$)/g, (match) => {
+        const isBlock = match.startsWith('$$');
+        const raw = isBlock ? match.slice(2, -2) : match.slice(1, -1);
+        const token = `___MATH_TOKEN_${mathTokens.length}___`;
+        mathTokens.push({ raw, isBlock });
+        return token;
+      });
+
+      // 2. Chống lỗi mã HTML
+      processed = processed
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      // 3. Định dạng Markdown cơ bản
+      processed = processed
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code style="background:var(--bg-hover);padding:2px 5px;border-radius:4px;font-size:0.9em;">$1</code>');
+
+      // 4. Xử lý các lệnh LaTeX sót bên ngoài dấu $ (ví dụ \Delta, \frac)
+      processed = processed
+        .replace(/\\Delta\b/g, 'Δ')
+        .replace(/\\alpha\b/g, 'α')
+        .replace(/\\beta\b/g, 'β')
+        .replace(/\\gamma\b/g, 'γ')
+        .replace(/\\pi\b/g, 'π')
+        .replace(/\\leq?\b/g, '≤')
+        .replace(/\\geq?\b/g, '≥')
+        .replace(/\\neq?\b/g, '≠')
+        .replace(/\\approx\b/g, '≈')
+        .replace(/\\times\b/g, '×')
+        .replace(/\\cdot\b/g, '·')
+        .replace(/\\pm\b/g, '±')
+        .replace(/\\frac\s*\{([^}]+)\}\s*\{([^}]+)\}/g, '$1/$2');
+
+      // 5. Phục hồi và render công thức Toán học
+      mathTokens.forEach((item, idx) => {
+        const token = `___MATH_TOKEN_${idx}___`;
+        let mathHtml = '';
+        if (!forWord && typeof katex !== 'undefined') {
+          try {
+            mathHtml = katex.renderToString(item.raw, {
+              displayMode: item.isBlock,
+              throwOnError: false
+            });
+          } catch (e) {
+            mathHtml = renderMathFallback(item.raw);
+          }
+        } else {
+          mathHtml = renderMathFallback(item.raw);
+        }
+        processed = processed.replace(token, mathHtml);
+      });
+
+      return processed;
+    }
+
+    // -------------------------------------------------------------
+    // BỘ CHUYỂN ĐỔI MARKDOWN TOÀN DIỆN (TIÊU ĐỀ, DANH SÁCH, BẢNG, TOÁN)
+    // -------------------------------------------------------------
+    function parseMarkdownToHTML(md, forWord = false) {
       if (!md) return '';
 
       const lines = md.split('\n');
@@ -2237,21 +2591,63 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
       for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
 
+        // 1. Phân tích Bảng biểu Markdown (| Cột 1 | Cột 2 |)
+        if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          const tableRows = [];
+          while (i < lines.length && lines[i].trim().startsWith('|') && lines[i].trim().endsWith('|')) {
+            tableRows.push(lines[i].trim());
+            i++;
+          }
+          i--; // Lùi 1 dòng do vòng lặp for sẽ tự tăng
+
+          if (tableRows.length >= 2) {
+            let tableHtml = '<div class="table-wrapper"><table class="doc-table">';
+            let hasHeader = false;
+            let headerRow = tableRows[0];
+            let separatorRow = tableRows[1];
+
+            if (/^\|[\s\-:|]+\|$/.test(separatorRow)) {
+              hasHeader = true;
+              const ths = headerRow.slice(1, -1).split('|').map(c => `<th>${formatInline(c.trim(), forWord)}</th>`).join('');
+              tableHtml += `<thead><tr>${ths}</tr></thead>`;
+            }
+
+            tableHtml += '<tbody>';
+            for (let r = (hasHeader ? 2 : 0); r < tableRows.length; r++) {
+              if (/^\|[\s\-:|]+\|$/.test(tableRows[r])) continue;
+              const tds = tableRows[r].slice(1, -1).split('|').map(c => `<td>${formatInline(c.trim(), forWord)}</td>`).join('');
+              tableHtml += `<tr>${tds}</tr>`;
+            }
+            tableHtml += '</tbody></table></div>';
+            html += tableHtml;
+            continue;
+          }
+        }
+
+        // 2. Đường kẻ ngang
+        if (/^(\-{3,}|\*{3,}|_{3,})$/.test(line.trim())) {
+          if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+          html += '<hr style="border: none; border-top: 1px solid var(--border-color); margin: 20px 0;">';
+          continue;
+        }
+
+        // 3. Tiêu đề các cấp
         if (line.startsWith('# ')) {
           if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-          html += '<h1>' + formatInline(line.substring(2)) + '</h1>';
+          html += '<h1>' + formatInline(line.substring(2), forWord) + '</h1>';
         } else if (line.startsWith('## ')) {
           if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-          html += '<h2>' + formatInline(line.substring(3)) + '</h2>';
+          html += '<h2>' + formatInline(line.substring(3), forWord) + '</h2>';
         } else if (line.startsWith('### ')) {
           if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-          html += '<h3>' + formatInline(line.substring(4)) + '</h3>';
+          html += '<h3>' + formatInline(line.substring(4), forWord) + '</h3>';
         } else if (line.startsWith('#### ')) {
           if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-          html += '<h4>' + formatInline(line.substring(5)) + '</h4>';
+          html += '<h4>' + formatInline(line.substring(5), forWord) + '</h4>';
         } else if (line.startsWith('> ')) {
           if (inList) { html += (listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-          html += '<blockquote>' + formatInline(line.substring(2)) + '</blockquote>';
+          html += '<blockquote>' + formatInline(line.substring(2), forWord) + '</blockquote>';
         } else if (line.trim().startsWith('- ') || line.trim().startsWith('* ') || line.trim().startsWith('+ ')) {
           if (!inList || listType !== 'ul') {
             if (inList) html += (listType === 'ul' ? '</ul>' : '</ol>');
@@ -2260,7 +2656,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
             listType = 'ul';
           }
           const content = line.trim().substring(2);
-          html += '<li>' + formatInline(content) + '</li>';
+          html += '<li>' + formatInline(content, forWord) + '</li>';
         } else if (/^\s*\d+\.\s+/.test(line)) {
           if (!inList || listType !== 'ol') {
             if (inList) html += (listType === 'ul' ? '</ul>' : '</ol>');
@@ -2269,7 +2665,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
             listType = 'ol';
           }
           const content = line.replace(/^\s*\d+\.\s+/, '');
-          html += '<li>' + formatInline(content) + '</li>';
+          html += '<li>' + formatInline(content, forWord) + '</li>';
         } else if (line.trim() === '') {
           if (inList) {
             html += (listType === 'ul' ? '</ul>' : '</ol>');
@@ -2280,7 +2676,7 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
             html += (listType === 'ul' ? '</ul>' : '</ol>');
             inList = false;
           }
-          html += '<p>' + formatInline(line) + '</p>';
+          html += '<p>' + formatInline(line, forWord) + '</p>';
         }
       }
 
@@ -2289,15 +2685,6 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
       }
 
       return html;
-    }
-
-    function formatInline(text) {
-      return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>');
     }
 
     // -------------------------------------------------------------
@@ -2317,9 +2704,9 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
 
       if (loading) {
         createSpinner.classList.add('spin-animation');
-        createBtnText.textContent = 'AI đang thiết kế bài dạy...';
+        createBtnText.textContent = 'Đang phân tích bài dạy...';
         upgradeSpinner.classList.add('spin-animation');
-        upgradeBtnText.textContent = 'AI đang nâng cấp giáo án...';
+        upgradeBtnText.textContent = 'Đang phân tích bài dạy...';
 
         document.getElementById('statePlaceholder').style.display = 'none';
         document.getElementById('stateError').style.display = 'none';
@@ -2327,10 +2714,10 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
         document.getElementById('resultToolbar').style.display = 'none';
         document.getElementById('resultDisclaimer').style.display = 'none';
         document.getElementById('stateLoading').style.display = 'flex';
-        mascotSay('Bé Sách đang lật mở các trang sách tri thức và kết nối AI... Chờ mình một tẹo nhé! ⏳');
+        mascotSay('Đang phân tích bài dạy...');
       } else {
         createSpinner.classList.remove('spin-animation');
-        createBtnText.textContent = 'Thiết kế kế hoạch bài dạy chuẩn 5512';
+        createBtnText.textContent = 'Phân tích bài dạy';
         upgradeSpinner.classList.remove('spin-animation');
         upgradeBtnText.textContent = 'Nâng cấp bài dạy chuẩn Công văn 5512';
         document.getElementById('stateLoading').style.display = 'none';
@@ -2372,12 +2759,25 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
     // Nút 1: Tạo bài dạy mới
     async function handleGenerateNew() {
       const promptInput = document.getElementById('promptInput');
-      let targetPrompt = promptInput.value.trim();
+      let targetPrompt = promptInput ? promptInput.value.trim() : '';
 
       if (!targetPrompt) {
-        targetPrompt = 'Thiết kế kế hoạch bài dạy môn Toán lớp 10, chủ đề Hàm số bậc hai theo Công văn 5512';
-        promptInput.value = targetPrompt;
+        if (promptInput) {
+          promptInput.focus();
+          promptInput.classList.add('input-warning');
+          setTimeout(() => {
+            promptInput.classList.remove('input-warning');
+          }, 1500);
+        }
+        const warningEl = document.getElementById('promptWarning');
+        if (warningEl) {
+          warningEl.style.display = 'flex';
+        }
+        mascotSay('Chưa có nội dung để phân tích. Bạn hãy nhập tên bài học hoặc chọn ý tưởng gợi ý bên dưới nhé! ✍️');
+        return;
       }
+
+      clearPromptWarning();
 
       currentPrompt = targetPrompt;
       setGeneratingUI(true);
@@ -2394,9 +2794,28 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
 
     // Nút 2: Nâng cấp bài dạy cũ
     async function handleGenerateUpgrade() {
-      const upgradeNotes = document.getElementById('upgradeNotes').value.trim();
-      let promptText = upgradeNotes || 'Rà soát và chuẩn hóa giáo án theo Công văn 5512 và CT GDPT 2018';
+      const upgradeNotesEl = document.getElementById('upgradeNotes');
+      const upgradeNotes = upgradeNotesEl ? upgradeNotesEl.value.trim() : '';
 
+      if (!uploadedFileData && !upgradeNotes) {
+        if (upgradeNotesEl) {
+          upgradeNotesEl.focus();
+          upgradeNotesEl.classList.add('input-warning');
+          setTimeout(() => {
+            upgradeNotesEl.classList.remove('input-warning');
+          }, 1500);
+        }
+        const warningEl = document.getElementById('upgradeWarning');
+        if (warningEl) {
+          warningEl.style.display = 'flex';
+        }
+        mascotSay('Chưa có nội dung để phân tích. Bạn hãy tải lên tệp giáo án cũ hoặc nhập yêu cầu nâng cấp nhé! ✍️');
+        return;
+      }
+
+      clearUpgradeWarning();
+
+      let promptText = upgradeNotes || 'Rà soát và chuẩn hóa giáo án theo Công văn 5512 và CT GDPT 2018';
       let fileContent = '';
       if (uploadedFileData) {
         fileContent = uploadedFileData.content;
@@ -2451,8 +2870,8 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
     }
 
     function handleExportWord() {
-      const canvas = document.getElementById('documentCanvas');
-      const contentHtml = canvas ? canvas.innerHTML : parseMarkdownToHTML(currentMarkdown);
+      if (!currentMarkdown) return;
+      const contentHtml = parseMarkdownToHTML(currentMarkdown, true);
 
       if (!contentHtml) return;
 
@@ -2490,6 +2909,10 @@ ${isUpgrade && existingDocContent ? `\nLƯU Ý CẢI TIẾN TỪ NỘI DUNG BÀI
   strong { font-weight: bold; color: #000000; }
   em { font-style: italic; }
   blockquote { border-left: 3pt solid #004b91; padding-left: 10pt; font-style: italic; margin: 10pt 0; color: #004b91; background-color: #f0f7ff; }
+  table { width: 100%; border-collapse: collapse; margin: 12pt 0; }
+  th, td { border: 1pt solid #333333; padding: 6pt 8pt; font-size: 11pt; vertical-align: top; }
+  th { background-color: #f1f5f9; font-weight: bold; color: #004b91; }
+  .math-expr { font-family: 'Cambria Math', 'Times New Roman', serif; font-style: italic; }
 </style>
 </head>
 <body>
